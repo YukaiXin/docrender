@@ -18,12 +18,15 @@ import java.util.List;
 import java.util.Map;
 
 public class WordGenertar {
+
         public static void main(String[] args) throws Exception
 
         {
             Configuration cfg = new Configuration();
-            cfg.setDirectoryForTemplateLoading(new File("C:/Users/yuki_cool/MyCodes/doc-render/src/main/resources/templates"));
-            Template template = cfg.getTemplate("testRS.ftl");
+           // cfg.setDirectoryForTemplateLoading(new File("C:/Users/yuki_cool/MyCodes/doc-render/src/main/resources/templates"));
+
+            cfg.setDirectoryForTemplateLoading(new File(args[1]));
+            Template template = cfg.getTemplate(args[2]);
             cfg.setDefaultEncoding("UTF-8");
             Map root =  new HashMap();
             root.put("Patientname","小明");
@@ -32,13 +35,13 @@ public class WordGenertar {
 
             List<ChemotherapyData> userList = new ArrayList<ChemotherapyData>();
             // userList.add(new ChemotherapyData());
-            File file = new File("C:/Users/yuki_cool/MyCodes/doc-render/src/main/resources/chemotherapeutics.txt");
+            File file = new File(args[3]);
 
             ArrayList<ChemotherapyData> arrayList = new ArrayList<>();
             root.put("userList",ReaderLocalFiles.txt2String1(arrayList, file));
 
 
-            Writer out1 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:/Users/yuki_cool/MyCodes/doc-render/src/main/resources/c.doc"),"UTF-8"));
+            Writer out1 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(args[4]),"UTF-8"));
             template.process(root, out1);
 
 
