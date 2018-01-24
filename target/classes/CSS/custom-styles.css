@@ -1,0 +1,17 @@
+
+#a1{
+    font-size: 15px;
+}
+#title_text{
+    font-family:  verdana,arial,sans-serif;
+    font-style: normal;
+    color: burlywood;
+}
+#sm{
+    line-height: 18px;
+    letter-spacing: 1px;
+    font-family:verdana,arial,sans-serif;
+}
+ul{
+    font-size: 15px;
+}

@@ -1,0 +1,84 @@
+
+
+table{
+}
+/* Border styles */
+#table-1 thead, #table-1 tr {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(230, 189, 189);
+}
+#table-1 {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(230, 189, 189);
+}
+
+/* Padding and font style */
+#table-1 td, #table-1 th {
+    padding: 5px 10px;
+    font-size: 12px;
+    font-family: Verdana;
+    color: rgb(177, 106, 104);
+}
+
+/* Alternating background colors */
+#table-1 tr:nth-child(even) {
+    background: rgb(238, 211, 210)
+}
+#table-1 tr:nth-child(odd) {
+    background: #FFF
+}
+table.gridtable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+    padding-top: 1px;
+    background: bisque;
+}
+table.gridtable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: burlywood;
+}
+table.gridtable td {
+    border-width: 1px;
+    height: 100px;
+    padding: 2px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}
+table.gridtable caption{
+    text-align:left;
+    padding-bottom:0;
+    border-style: none;
+}
+
+
+table.infotable{
+    border-width: 1px;
+    padding: 8px;
+    border-collapse: collapse;
+    border-style: solid;
+    border-color: #666666;
+    background-color: burlywood;
+    font-family: verdana,arial,sans-serif;
+}
+table.QCtable{
+    border-width: 1px;
+    padding: 4px;
+    border-collapse: collapse;
+    border-style: solid;
+    border-color: #666666;
+    font-size: 12px;
+    font-family: verdana,arial,sans-serif;
+}
+table.QCtable th{
+    background-color: burlywood;
+}
