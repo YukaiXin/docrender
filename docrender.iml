@@ -11,15 +11,36 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.2" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.2" level="project" />
-    <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.20" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.5" level="project" />
     <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.2" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.2" level="project" />
     <orderEntry type="library" name="Maven: com.itextpdf:itextpdf:5.4.4" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.20" level="project" />
+    <orderEntry type="library" name="Maven: org.kohsuke.args4j:args4j-maven-plugin:2.33" level="project" />
+    <orderEntry type="library" name="Maven: args4j:args4j-tools:all:2.33" level="project" />
+    <orderEntry type="library" name="Maven: args4j:args4j:2.33" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: jdk:tools:5.0">
+        <CLASSES>
+          <root url="jar://C:/Program Files (x86)/Java/jdk1.8.0_144/lib/tools.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-project:2.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-settings:2.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-profile:2.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-model:2.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-artifact-manager:2.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-repository-metadata:2.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.wagon:wagon-provider-api:1.0-alpha-6" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-utils:1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-artifact:2.0.4" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.plexus:plexus-container-default:1.0-alpha-9" level="project" />
+    <orderEntry type="library" name="Maven: junit:junit:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: classworlds:classworlds:1.1-alpha-2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven:maven-plugin-api:2.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.5" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
   </component>
