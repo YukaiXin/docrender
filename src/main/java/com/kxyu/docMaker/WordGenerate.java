@@ -41,7 +41,7 @@ public class WordGenerate {
         System.out.println(cmdOption.cancerQCFilePath);
         System.out.println(cmdOption.chemotherapyFilePath);
         System.out.println(cmdOption.controlQCFilePath);
-        System.out.println(cmdOption.temlateFile);
+        System.out.println(cmdOption.templateDirFile);
         System.out.println(cmdOption.out);
         System.out.println(cmdOption.temlateFile);
 
