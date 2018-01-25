@@ -60,7 +60,7 @@ public class WordGenerate {
             File file = new File(cmdOption.chemotherapyFilePath);
 
         ArrayList<ChemotherapyData> arrayList = new ArrayList<>();
-        root.put("userList",ReaderLocalFiles.txt2String1(arrayList, file));
+        root.put("userList",ReaderLocalFiles.readChemotherapyData(arrayList, file));
 
         Writer out1 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(cmdOption.out),"UTF-8"));
 
@@ -69,7 +69,6 @@ public class WordGenerate {
 
         QcDatas qcDatas = new QcDatas();
         QcDatas ac1 = ReaderLocalFiles.readQcDatas(qcDatas, cancerFile, controlFile);
-        System.out.println(ac1.getmCancerAverageSequenceDepths()+" "+ac1.getmControlAverageSequenceDepths());
         root.put("QC", ac1);
 
         template.process(root, out1);

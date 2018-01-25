@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * @Author: kxyu
- * @Date: Created in 9:52 2018/1/13
+ * @Date: Created in 9:52 2018/1/20
  */
 
 public class QcDatas implements Serializable {

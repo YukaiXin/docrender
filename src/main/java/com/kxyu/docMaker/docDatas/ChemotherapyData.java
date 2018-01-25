@@ -2,6 +2,10 @@ package com.kxyu.docMaker.docDatas;
 
 import com.kxyu.docMaker.document.AbstractDocumentVo;
 
+/**
+ * @Author: kxyu
+ * @Date: Created in 9:52 2018/1/19
+ */
 public class ChemotherapyData extends AbstractDocumentVo{
     public ChemotherapyData(String mDisease, String mDrug, String mGene, String mRS, String mEvidenceLevel, String mGenotype, String mAnnotation) {
         this.mDisease = mDisease;

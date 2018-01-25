@@ -1,27 +1,31 @@
 package com.kxyu.docMaker;
 
+
+import com.kxyu.docMaker.common.Constant;
 import org.kohsuke.args4j.Option;
 
 import java.io.File;
 
+import static com.kxyu.docMaker.common.Constant.*;
+
 public class CmdOption {
 
-    @Option(name = "-templateDirFile", usage = "FreeMark文件夹路径", required = true)
+    @Option(name = CMD_TEMLATE_DIR_FILE_NAME, usage = CMD_TEMLATE_DIR_FILE_USAGE, required = true)
     public String templateDirFile;
 
-    @Option(name = "-temlateFile", usage = "FreeMark模板路径", required = true)
+    @Option(name = CMD_TEMLATE_FILE_NAME, usage = CMD_TEMLATE_FILE_USAGE, required = true)
     public String temlateFile;
 
-    @Option(name = "-cancerQCFile", usage = "肿瘤组织质控信息文件路径", required = true)
+    @Option(name = CMD_CANCER_QC_FILE_NAME, usage = CMD_CANCER_QC_FILE_USAGE, required = true)
     public String cancerQCFilePath;
 
-    @Option(name = "-controlQCFile", usage = "对照组质控信息文件路径", required = true)
+    @Option(name = CMD_CONTROL_QC_FILE_NAME, usage = CMD_CONTROL_QC_FILE_USAGE, required = true)
     public String controlQCFilePath;
 
-    @Option(name = "-chemotherapyData", usage = "化疗药物数据库路径", required = true)
+    @Option(name = CMD_CHEMOTHERAPY_NAME, usage = CMD_CHEMOTHERAPY_USAGE, required = true)
     public String chemotherapyFilePath;
 
 
-    @Option(name = "-output", usage = "输出word文件路径", required = true, metaVar = "OUTPUT")
+    @Option(name = CMD_OUTPUT_NAME, usage = CMD_OUTPUT_USAGE, required = true, metaVar = CMD_OUTPUT_MATEVAR)
     public File out = new File(".");
 }
