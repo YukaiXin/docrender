@@ -47,8 +47,8 @@ public class WordGenerate {
 
 
         Configuration cfg = new Configuration();
-        cfg.setDirectoryForTemplateLoading(new File("C:/Users/ykx/codes/docrender/src/main/resources/templates"));
-        Template template = cfg.getTemplate("testRS.ftl");
+        cfg.setDirectoryForTemplateLoading(new File(cmdOption.templateDirFile));
+        Template template = cfg.getTemplate(cmdOption.temlateFile);
         cfg.setDefaultEncoding("UTF-8");
         Map root =  new HashMap();
         root.put("Patientname","");
@@ -57,15 +57,15 @@ public class WordGenerate {
 
         List<ChemotherapyData> userList = new ArrayList<ChemotherapyData>();
         // userList.add(new ChemotherapyData());
-            File file = new File("C:/Users/ykx/codes/demo/src/main/resources/chemotherapeutics.txt");
+            File file = new File(cmdOption.chemotherapyFilePath);
 
         ArrayList<ChemotherapyData> arrayList = new ArrayList<>();
         root.put("userList",ReaderLocalFiles.txt2String1(arrayList, file));
 
-        Writer out1 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("D:/DATA/c.doc"),"UTF-8"));
+        Writer out1 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(cmdOption.out),"UTF-8"));
 
-        File cancerFile = new File("C:/Users/ykx/codes/demo/src/main/resources/cancerQC.txt");
-        File controlFile = new File("C:/Users/ykx/codes/demo/src/main/resources/controlQC.txt");
+        File cancerFile = new File(cmdOption.cancerQCFilePath);
+        File controlFile = new File(cmdOption.controlQCFilePath);
 
         QcDatas qcDatas = new QcDatas();
         QcDatas ac1 = ReaderLocalFiles.readQcDatas(qcDatas, cancerFile, controlFile);
