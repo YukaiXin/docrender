@@ -52,8 +52,8 @@ public class WordGenerate {
         cfg.setDefaultEncoding("UTF-8");
         Map root =  new HashMap();
         root.put("Patientname","");
-        root.put("PatientAge","21");
-        root.put("PatientSex","男");
+        root.put("PatientAge","");
+        root.put("PatientSex","");
 
         List<ChemotherapyData> userList = new ArrayList<ChemotherapyData>();
         // userList.add(new ChemotherapyData());
