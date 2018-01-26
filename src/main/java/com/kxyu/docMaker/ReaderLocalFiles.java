@@ -84,7 +84,6 @@ public class ReaderLocalFiles {
             if(isCancer) {
                 if (s.contains(Constant.QC_TOTAL_READS)) {
                     qcDatas.setmCancerDatasSize(tmp[1]);
-                    System.out.println(qcDatas.getmCancerDatasSize());
                 } else if (s.contains(Constant.QC_PROPERLY_MAPPED)) {
                     qcDatas.setmCancerMapped(tmp[1]);
                 } else if (s.contains(Constant.QC_TARGET_REGION)) {
@@ -101,7 +100,6 @@ public class ReaderLocalFiles {
             }else {
                     if (s.contains(Constant.QC_TOTAL_READS)) {
                         qcDatas.setmControlDataSize(tmp[1]);
-                        System.out.println(qcDatas.getmControlDataSize());
                     } else if (s.contains(Constant.QC_PROPERLY_MAPPED)) {
                         qcDatas.setmControlMapped(tmp[1]);
                     } else if (s.contains(Constant.QC_TARGET_REGION)) {
