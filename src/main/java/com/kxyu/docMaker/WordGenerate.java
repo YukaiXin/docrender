@@ -31,7 +31,6 @@ public class WordGenerate {
         CmdOption cmdOption = new CmdOption();
         CmdLineParser parser = new CmdLineParser(cmdOption);
 
-
         if (args.length == 0){
             showHelp(parser);
             return;
@@ -71,7 +70,7 @@ public class WordGenerate {
         root.put(FREEMARK_QC_DATAS, ac1);
 
         template.process(root, out1);
-        System.out.println("ok");
+        System.out.println(OK);
     }
 
     public static void showHelp(CmdLineParser parser){

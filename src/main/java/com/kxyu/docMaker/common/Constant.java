@@ -5,12 +5,16 @@ package com.kxyu.docMaker.common;
  * @Date: Created in 13:35 2018/1/25
  */
 public class Constant {
+
+    public  static final String OK                            =  "ok!!!";
+
     //Charset
-    public  static final String CHARSET_NAME_UTF_8                         =  "UTF-8";
+    public  static final String CHARSET_NAME_UTF_8            =  "UTF-8";
 
     //QC
     public  static final boolean QC_IS_CANCER                 =  true;
     public  static final boolean QC_IS_CONTROL                =  false;
+
     public  static final String  QC_COVERAGE                  =  "coverage";
     public  static final String  QC_TOTAL_READS               =  "Total reads";
     public  static final String  QC_TARGET_REGION             =  "Target region";
