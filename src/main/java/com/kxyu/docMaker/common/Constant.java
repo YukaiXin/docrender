@@ -5,7 +5,8 @@ package com.kxyu.docMaker.common;
  * @Date: Created in 13:35 2018/1/25
  */
 public class Constant {
-
+    //Charset
+    public  static final String CHARSET_NAME_UTF_8                         =  "UTF-8";
 
     //QC
     public  static final boolean QC_IS_CANCER                 =  true;
@@ -41,5 +42,19 @@ public class Constant {
     public  static final String  CMD_OUTPUT_NAME              =  "-output" ;
     public  static final String  CMD_OUTPUT_MATEVAR           =  "metaVar" ;
     public  static final String  CMD_OUTPUT_USAGE             =  "输出word文件路径" ;
+
+    public  static final String  CMD_OPTIONS_NULL             =  "LDA   [options ...] [arguments...]";
+
+    //Freemark Key
+             /******** QC Info ********/
+    public  static final String  FREEMARK_QC_DATAS            =  "QcDatas";
+
+             /******** Patient Info ********/
+    public  static final String  FREEMARK_PATIENT_AGE         =  "PatientAge";
+    public  static final String  FREEMARK_PATIENT_SEX         =  "PatientSex";
+    public  static final String  FREEMARK_PATIENT_NAME        =  "Patientname";
+
+             /******** Chemotherapy Info ********/
+    public  static final String  FREEMARK_CHEMOTHERAPY_LIST   =  "ChemotherapyList";
 
 }

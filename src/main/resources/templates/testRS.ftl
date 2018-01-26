@@ -132,8 +132,8 @@
                  <th align="left">基因型</th>
                  <th align="left ">注释</th>
 			 </tr>
-             <#if userList?exists>
-				 <#list userList as item>
+             <#if ChemotherapyList?exists>
+				 <#list ChemotherapyList as item>
 		     <tr>
                  <td>${item.mDisease}</td>
                  <td>${item.mDrug}</td>
@@ -191,38 +191,38 @@
     </tr>
      <tr>
          <td>数据量</td>
-         <td>${QC.mCancerDatasSize}</td>
-         <td>${QC.mControlDataSize}</td>
+         <td>${QcDatas.mCancerDatasSize}</td>
+         <td>${QcDatas.mControlDataSize}</td>
      </tr>
     <tr>
         <td>比对上序列</td>
-        <td>${QC.mCancerMapped}</td>
-        <td>${QC.mControlMapped}</td>
+        <td>${QcDatas.mCancerMapped}</td>
+        <td>${QcDatas.mControlMapped}</td>
     </tr>
     <tr>
         <td>目标区域大小</td>
-        <td>${QC.mCancerTargetRegion}</td>
-        <td>${QC.mControlTargetRegion}</td>
+        <td>${QcDatas.mCancerTargetRegion}</td>
+        <td>${QcDatas.mControlTargetRegion}</td>
     </tr>
     <tr>
         <td>有效</td>
-        <td>${QC.mCancerTotalEffectiveYield}</td>
-        <td>${QC.mControlTotalEffectiveYield}</td>
+        <td>${QcDatas.mCancerTotalEffectiveYield}</td>
+        <td>${QcDatas.mControlTotalEffectiveYield}</td>
     </tr>
     <tr>
         <td>目标序列有效</td>
-        <td>${QC.mCancerEffectiveYieldOnTarget}</td>
-        <td>${QC.mControlEffectiveYieldOnTarget}</td>
+        <td>${QcDatas.mCancerEffectiveYieldOnTarget}</td>
+        <td>${QcDatas.mControlEffectiveYieldOnTarget}</td>
     </tr>
     <tr>
         <td>覆盖度</td>
-        <td>${QC.mCancerCoverage}</td>
-        <td>${QC.mControlCoverage}</td>
+        <td>${QcDatas.mCancerCoverage}</td>
+        <td>${QcDatas.mControlCoverage}</td>
     </tr>
     <tr>
         <td>平均深度</td>
-        <td>${QC.mCancerAverageSequenceDepths}</td>
-        <td>${QC.mControlAverageSequenceDepths}</td>
+        <td>${QcDatas.mCancerAverageSequenceDepths}</td>
+        <td>${QcDatas.mControlAverageSequenceDepths}</td>
     </tr>
 
 </table>

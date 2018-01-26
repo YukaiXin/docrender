@@ -39,12 +39,11 @@ public class ReaderLocalFiles {
     /* *
      * @author kxyuyuyu
      * @date 2018/1/25 13:29
-     * @param   ArrayList<ChemotherapyData> 化疗药数据列表 File  化疗药物数据库文件
+     * @param   ArrayList<ChemotherapyData> 化疗药数据链表 File  化疗药物数据库文件
      * @return
      */
     public static ArrayList<ChemotherapyData> readChemotherapyData( ArrayList<ChemotherapyData> arrayList, File file){
 
-        StringBuilder result = new StringBuilder();
         try{
             BufferedReader br = new BufferedReader(new FileReader(file));
             String s = null;

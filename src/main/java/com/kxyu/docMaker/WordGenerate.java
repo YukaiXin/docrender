@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.kxyu.docMaker.common.Constant.*;
+
 public class WordGenerate {
     public static void main(String[] args) throws IOException, TemplateException, CmdLineException {
 
@@ -49,34 +51,34 @@ public class WordGenerate {
         Configuration cfg = new Configuration();
         cfg.setDirectoryForTemplateLoading(new File(cmdOption.templateDirFile));
         Template template = cfg.getTemplate(cmdOption.temlateFile);
-        cfg.setDefaultEncoding("UTF-8");
+        cfg.setDefaultEncoding(CHARSET_NAME_UTF_8);
         Map root =  new HashMap();
-        root.put("Patientname","");
-        root.put("PatientAge","");
-        root.put("PatientSex","");
+        root.put(FREEMARK_PATIENT_NAME, "");
+        root.put(FREEMARK_PATIENT_AGE, "");
+        root.put(FREEMARK_PATIENT_SEX, "");
 
         List<ChemotherapyData> userList = new ArrayList<ChemotherapyData>();
         // userList.add(new ChemotherapyData());
             File file = new File(cmdOption.chemotherapyFilePath);
 
         ArrayList<ChemotherapyData> arrayList = new ArrayList<>();
-        root.put("userList",ReaderLocalFiles.readChemotherapyData(arrayList, file));
+        root.put(FREEMARK_CHEMOTHERAPY_LIST, ReaderLocalFiles.readChemotherapyData(arrayList, file));
 
-        Writer out1 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(cmdOption.out),"UTF-8"));
+        Writer out1 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(cmdOption.out), CHARSET_NAME_UTF_8));
 
         File cancerFile = new File(cmdOption.cancerQCFilePath);
         File controlFile = new File(cmdOption.controlQCFilePath);
 
         QcDatas qcDatas = new QcDatas();
         QcDatas ac1 = ReaderLocalFiles.readQcDatas(qcDatas, cancerFile, controlFile);
-        root.put("QC", ac1);
+        root.put(FREEMARK_QC_DATAS, ac1);
 
         template.process(root, out1);
         System.out.println("ok");
     }
 
     public static void showHelp(CmdLineParser parser){
-        System.out.println("LDA [options ...] [arguments...]");
+        System.out.println(CMD_OPTIONS_NULL);
         parser.printUsage(System.out);
     }
 
