@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 
  * @Description:Jackson 简单封装类
 
- * @author lihengjun
+ * @author kxyu
 
  * 修改时间： 2013年11月8日 上午9:56:18
 
@@ -31,7 +31,6 @@ public class JacksonBinder {
 	private ObjectMapper mapper;
 //	private XmlMapper xmlMapper;
 
-
 	public JacksonBinder(Inclusion inclusion) {
 		this.mapper = new ObjectMapper();
 		// 设置输出包含的属性
@@ -42,16 +41,6 @@ public class JacksonBinder {
 		this.mapper.getDeserializationConfig()
 				.set(org.codehaus.jackson.map.DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES,
 						false);
-
-//		xmlMapper = new XmlMapper();
-
-//		xmlMapper.getSerializationConfig().setSerializationInclusion(inclusion);
-
-//		xmlMapper.getDeserializationConfig().set(org.codehaus.jackson.map.DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES,
-
-//						false);
-
-
 	}
 
 	/**
@@ -122,7 +111,7 @@ public class JacksonBinder {
 
 	 * @return
 
-	 * @author lihengjun
+	 * @author kxyu
 
 	 * 修改时间： 2013年11月5日 上午11:10:00
 
@@ -151,7 +140,7 @@ public class JacksonBinder {
 
 	 * @return
 
-	 * @author lihengjun 修改时间： 2013年11月7日 上午11:22:01 修改内容：新建
+	 * @author kxyu 修改时间： 2013年11月7日 上午11:22:01 修改内容：新建
 
 	 */
 	public <T> T fromJsonFile(File file, Class<T> clazz) {
@@ -262,7 +251,7 @@ public class JacksonBinder {
 
 //	 * @return
 
-//	 * @author lihengjun
+//	 * @author kxyu
 
 //	 * 修改时间： 2013年11月7日 下午12:51:10
 

@@ -57,10 +57,7 @@ public class WordGenerate {
         root.put(FREEMARK_PATIENT_AGE, "");
         root.put(FREEMARK_PATIENT_SEX, "");
 
-        List<ChemotherapyData> userList = new ArrayList<ChemotherapyData>();
-        // userList.add(new ChemotherapyData());
-            File file = new File(cmdOption.chemotherapyFilePath);
-
+        File file = new File(cmdOption.chemotherapyFilePath);
         ArrayList<ChemotherapyData> arrayList = new ArrayList<>();
         root.put(FREEMARK_CHEMOTHERAPY_LIST, ReaderLocalFiles.readChemotherapyData(arrayList, file));
 

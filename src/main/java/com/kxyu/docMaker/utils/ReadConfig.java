@@ -13,7 +13,7 @@ import java.util.Properties;
  * <h3>Configuration.java</h3>
  * <h4>Description</h4>
  * @ver 0.1
- * @author 李恒军
+ * @author kxyu
  * 2011-8-2 下午02:14:40
  */
 public class  ReadConfig{

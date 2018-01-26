@@ -23,7 +23,7 @@ import java.net.URL;
  * ��Դ������
  * @ClassName: Loader
  * @Description: ��Դ������
- * @author lihengjun
+ * @author kxyu
  * �޸�ʱ�䣺 2013��11��11�� ����5:17:33
  * �޸����ݣ��½�
  */
@@ -37,7 +37,7 @@ public class ResourceLoader  {
    * @Description: classpath�л�ȡ��Դ
    * @param resource
    * @return
-   * @author lihengjun
+   * @author kxyu
    * �޸�ʱ�䣺 2013��11��11�� ����5:18:00
    * �޸����ݣ��½�
    */
@@ -53,7 +53,7 @@ public class ResourceLoader  {
    * @Description: 
    * @param resource
    * @return
-   * @author lihengjun
+   * @author kxyu
    * �޸�ʱ�䣺 2013��11��11�� ����5:00:15
    * �޸����ݣ��½�
    */
@@ -76,7 +76,7 @@ public class ResourceLoader  {
    * @param resource
    * @param clazz
    * @return
-   * @author lihengjun
+   * @author kxyu
    * �޸�ʱ�䣺 2013��11��11�� ����5:12:33
    * �޸����ݣ��½�
    */
@@ -94,7 +94,7 @@ public class ResourceLoader  {
    * @param resource
    * @param clazz
    * @return
-   * @author lihengjun
+   * @author kxyu
    * �޸�ʱ�䣺 2013��11��11�� ����5:10:40
    * �޸����ݣ��½�
    */
