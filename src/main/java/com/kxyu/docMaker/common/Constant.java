@@ -8,6 +8,8 @@ public class Constant {
 
 
     //QC
+    public  static final boolean QC_IS_CANCER                 =  true;
+    public  static final boolean QC_IS_CONTROL                =  false;
     public  static final String  QC_COVERAGE                  =  "coverage";
     public  static final String  QC_TOTAL_READS               =  "Total reads";
     public  static final String  QC_TARGET_REGION             =  "Target region";

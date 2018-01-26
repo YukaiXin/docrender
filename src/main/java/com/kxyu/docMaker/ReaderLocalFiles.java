@@ -71,33 +71,51 @@ public class ReaderLocalFiles {
     public static QcDatas readQcDatas(QcDatas qcDatas, File cancerFile, File controlFile) throws IOException {
 
         //read cancer QC datas
-        readSingleQCFile(qcDatas, cancerFile);
-        readSingleQCFile(qcDatas, controlFile);
-
+        readSingleQCFile(qcDatas, cancerFile, Constant.QC_IS_CANCER);
+        readSingleQCFile(qcDatas, controlFile, Constant.QC_IS_CONTROL);
         return qcDatas;
     }
 
-    private static void readSingleQCFile(QcDatas qcDatas, File file) throws IOException {
+    private static void readSingleQCFile(QcDatas qcDatas, File file,Boolean isCancer) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
         String s= null;
         while((s = br.readLine())!=null){//使用readLine方法，一次读一行
             String[] tmp = s.trim().split("\t");
-
-            if (s.contains(Constant.QC_TOTAL_READS)){
-                qcDatas.setmCancerDatasSize(tmp[1]);
-            }else if(s.contains(Constant.QC_PROPERLY_MAPPED)){
-                qcDatas.setmCancerMapped(tmp[1]);
-            }else if(s.contains(Constant.QC_TARGET_REGION)) {
-                qcDatas.setmCancerTargetRegion(tmp[1]);
-            }else if(s.contains(Constant.QC_TOTAL_EFFECTIVE_YIELD)){
-                qcDatas.setmCancerTotalEffectiveYield(tmp[1]);
-            }else if(s.contains(Constant.QC_EFFECTIVE_YIELD_ON_TARGET)){
-                qcDatas.setmCancerEffectiveYieldOnTarget(tmp[1]);
-            }else if(s.contains(Constant.QC_AVERAGE_SEQUENCE)){
-                qcDatas.setmCancerAverageSequenceDepths(tmp[1]);
-            }else if(s.contains(Constant.QC_COVERAGE)){
-                qcDatas.setmCancerCoverage(tmp[1]);
-            }
+            if(isCancer) {
+                if (s.contains(Constant.QC_TOTAL_READS)) {
+                    qcDatas.setmCancerDatasSize(tmp[1]);
+                    System.out.println(qcDatas.getmCancerDatasSize());
+                } else if (s.contains(Constant.QC_PROPERLY_MAPPED)) {
+                    qcDatas.setmCancerMapped(tmp[1]);
+                } else if (s.contains(Constant.QC_TARGET_REGION)) {
+                    qcDatas.setmCancerTargetRegion(tmp[1]);
+                } else if (s.contains(Constant.QC_TOTAL_EFFECTIVE_YIELD)) {
+                    qcDatas.setmCancerTotalEffectiveYield(tmp[1]);
+                } else if (s.contains(Constant.QC_EFFECTIVE_YIELD_ON_TARGET)) {
+                    qcDatas.setmCancerEffectiveYieldOnTarget(tmp[1]);
+                } else if (s.contains(Constant.QC_AVERAGE_SEQUENCE)) {
+                    qcDatas.setmCancerAverageSequenceDepths(tmp[1]);
+                } else if (s.contains(Constant.QC_COVERAGE)) {
+                    qcDatas.setmCancerCoverage(tmp[1]);
+                }
+            }else {
+                    if (s.contains(Constant.QC_TOTAL_READS)) {
+                        qcDatas.setmControlDataSize(tmp[1]);
+                        System.out.println(qcDatas.getmControlDataSize());
+                    } else if (s.contains(Constant.QC_PROPERLY_MAPPED)) {
+                        qcDatas.setmControlMapped(tmp[1]);
+                    } else if (s.contains(Constant.QC_TARGET_REGION)) {
+                        qcDatas.setmControlTargetRegion(tmp[1]);
+                    } else if (s.contains(Constant.QC_TOTAL_EFFECTIVE_YIELD)) {
+                        qcDatas.setmControlTotalEffectiveYield(tmp[1]);
+                    } else if (s.contains(Constant.QC_EFFECTIVE_YIELD_ON_TARGET)) {
+                        qcDatas.setmControlEffectiveYieldOnTarget(tmp[1]);
+                    } else if (s.contains(Constant.QC_AVERAGE_SEQUENCE)) {
+                        qcDatas.setmControlAverageSequenceDepths(tmp[1]);
+                    } else if (s.contains(Constant.QC_COVERAGE)) {
+                        qcDatas.setmControlCoverage(tmp[1]);
+                    }
+                }
         }
 
     }
