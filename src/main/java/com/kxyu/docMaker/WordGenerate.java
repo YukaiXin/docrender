@@ -51,9 +51,9 @@ public class WordGenerate {
         Template template = cfg.getTemplate(cmdOption.temlateFile);
         cfg.setDefaultEncoding(CHARSET_NAME_UTF_8);
         Map root =  new HashMap();
-        root.put(FREEMARK_PATIENT_NAME, "");
-        root.put(FREEMARK_PATIENT_AGE, "");
-        root.put(FREEMARK_PATIENT_SEX, "");
+        root.put(PATIENT_NAME, "");
+        root.put(PATIENT_AGE, "");
+        root.put(PATIENT_SEX, "");
 
         File file = new File(cmdOption.chemotherapyFilePath);
         ArrayList<ChemotherapyData> arrayList = new ArrayList<>();
