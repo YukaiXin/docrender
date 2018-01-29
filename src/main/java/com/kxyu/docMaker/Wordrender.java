@@ -27,10 +27,10 @@ public class Wordrender {
         File file = new File("C:/Users/ykx/codes/demo/src/main/resources/chemotherapeutics.txt");
 
         Map<String, Object> datas = new HashMap<String, Object>(){{
-            put(PATIENT_NAME, "老王");
-            put(PATIENT_AGE, "80");
-            put(PATIENT_SEX, "男");
-            put("table", new TableRenderData(new ArrayList<RenderData>(){{
+            put(PATIENT_NAME_KEY, "老王");
+            put(PATIENT_AGE_KEY, "80");
+            put(PATIENT_SEX_KEY, "男");
+            put(POI_CHEMOTHERAPY_TABLE_KEY, new TableRenderData(new ArrayList<RenderData>(){{
                 add(new TextRenderData(POI_CHEMOTHERAPY_TABLE_COLOR, POI_CHEMOTHERAPY_TABLE_DISEASE));
                 add(new TextRenderData(POI_CHEMOTHERAPY_TABLE_COLOR, POI_CHEMOTHERAPY_TABLE_DRUG));
                 add(new TextRenderData(POI_CHEMOTHERAPY_TABLE_COLOR, POI_CHEMOTHERAPY_TABLE_GENE));
