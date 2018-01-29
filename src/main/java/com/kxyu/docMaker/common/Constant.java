@@ -54,11 +54,30 @@ public class Constant {
     public  static final String  FREEMARK_QC_DATAS            =  "QcDatas";
 
              /******** Patient Info ********/
-    public  static final String  FREEMARK_PATIENT_AGE         =  "PatientAge";
-    public  static final String  FREEMARK_PATIENT_SEX         =  "PatientSex";
-    public  static final String  FREEMARK_PATIENT_NAME        =  "Patientname";
+    public  static final String  PATIENT_AGE         =  "PatientAge";
+    public  static final String  PATIENT_SEX         =  "PatientSex";
+    public  static final String  PATIENT_NAME        =  "Patientname";
 
              /******** Chemotherapy Info ********/
     public  static final String  FREEMARK_CHEMOTHERAPY_LIST   =  "ChemotherapyList";
+
+/************************
+ ************************
+ **********POI***********
+ ************************
+ ************************/
+
+    //poi color
+    public static  final String  POI_CHEMOTHERAPY_TABLE_COLOR                    =  "FFD39B";
+
+    //poi  Chemotherapy table head
+    public static  final String  POI_CHEMOTHERAPY_TABLE_GENE                     =  "基因";
+    public static  final String  POI_CHEMOTHERAPY_TABLE_DRUG                     =  "药物";
+    public static  final String  POI_CHEMOTHERAPY_TABLE_DISEASE                  =  "疾病";
+    public static  final String  POI_CHEMOTHERAPY_TABLE_RS                       =  "RS";
+    public static  final String  POI_CHEMOTHERAPY_TABLE_EVIDENCE_LEVEL           =  "证据等级";
+    public static  final String  POI_CHEMOTHERAPY_TABLE_GENOTYPE                 =  "基因型";
+    public static  final String  POI_CHEMOTHERAPY_TABLE_CLINIC                   =  "临床指导";
+
 
 }

@@ -33,7 +33,7 @@
     <orderEntry type="module-library">
       <library name="Maven: jdk:tools:5.0">
         <CLASSES>
-          <root url="jar://C:/Program Files (x86)/Java/jdk1.8.0_144/lib/tools.jar!/" />
+          <root url="jar://C:/Program Files/Java/jdk1.8.0_151/lib/tools.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

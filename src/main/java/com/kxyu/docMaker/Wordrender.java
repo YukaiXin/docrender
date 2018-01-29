@@ -6,6 +6,7 @@ import com.deepoove.poi.data.RenderData;
 import com.deepoove.poi.data.TableRenderData;
 import com.deepoove.poi.data.TextRenderData;
 import com.deepoove.poi.render.RenderAPI;
+import com.kxyu.docMaker.common.Constant;
 import com.kxyu.docMaker.utils.DateUtil;
 import com.sun.org.apache.xerces.internal.xs.datatypes.ObjectList;
 
@@ -16,26 +17,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.kxyu.docMaker.common.Constant.*;
+
 public class Wordrender {
 
     public static void main(String[] args) throws IOException {
 
         ArrayList<Object> ch_info = new ArrayList<>();
-        File file = new File("C:\\Users\\ykx\\codes\\demo\\src\\main\\resources\\chemotherapeutics.txt");
-
+        File file = new File("C:/Users/ykx/codes/demo/src/main/resources/chemotherapeutics.txt");
 
         Map<String, Object> datas = new HashMap<String, Object>(){{
-            put("name", "老王");
-            put("age", "80");
-            put("sex","男");
+            put(PATIENT_NAME, "老王");
+            put(PATIENT_AGE, "80");
+            put(PATIENT_SEX, "男");
             put("table", new TableRenderData(new ArrayList<RenderData>(){{
-                add(new TextRenderData("FFD39B", "疾病"));
-                add(new TextRenderData("FFD39B", "药物"));
-                add(new TextRenderData("FFD39B", "基因"));
-                add(new TextRenderData("FFD39B", "rs"));
-                add(new TextRenderData("FFD39B", "证据等级"));
-                add(new TextRenderData("FFD39B", "基因型"));
-                add(new TextRenderData("FFD39B", "临床指导"));
+                add(new TextRenderData(POI_CHEMOTHERAPY_TABLE_COLOR, POI_CHEMOTHERAPY_TABLE_DISEASE));
+                add(new TextRenderData(POI_CHEMOTHERAPY_TABLE_COLOR, POI_CHEMOTHERAPY_TABLE_DRUG));
+                add(new TextRenderData(POI_CHEMOTHERAPY_TABLE_COLOR, POI_CHEMOTHERAPY_TABLE_GENE));
+                add(new TextRenderData(POI_CHEMOTHERAPY_TABLE_COLOR, POI_CHEMOTHERAPY_TABLE_RS));
+                add(new TextRenderData(POI_CHEMOTHERAPY_TABLE_COLOR, POI_CHEMOTHERAPY_TABLE_EVIDENCE_LEVEL));
+                add(new TextRenderData(POI_CHEMOTHERAPY_TABLE_COLOR, POI_CHEMOTHERAPY_TABLE_GENOTYPE));
+                add(new TextRenderData(POI_CHEMOTHERAPY_TABLE_COLOR, POI_CHEMOTHERAPY_TABLE_CLINIC));
             }},ReaderLocalFiles.readChemotherapyData1(ch_info, file), "no datas", 8600));
         }};
 
