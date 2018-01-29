@@ -37,7 +37,7 @@ public class ReaderLocalFiles {
     }
 
     /* *
-     * @author kxyuyuyu
+     * @author kxyu
      * @date 2018/1/25 13:29
      * @param   ArrayList<ChemotherapyData> 化疗药数据链表 File  化疗药物数据库文件
      * @return
@@ -53,6 +53,25 @@ public class ReaderLocalFiles {
                     continue;
                 }
                 arrayList.add(new ChemotherapyData(tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5], tmp[6]));
+            }
+            br.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return arrayList;
+    }
+
+    public static ArrayList<Object> readChemotherapyData1( ArrayList<Object> arrayList, File file){
+
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String s = null;
+            while((s = br.readLine())!=null){
+                String[] tmp = s.trim().split("\t");
+                if (tmp.length < Constant.CHEMOTHERAPY_JUDGE_INT || s.contains(Constant.CHEMOTHERAPY_JUDGE_STR)){
+                    continue;
+                }
+                arrayList.add((tmp[0]+";"+tmp[1]+";"+tmp[2]+";"+tmp[3]+";"+tmp[4]+";"+tmp[5]+";"+tmp[6]));
             }
             br.close();
         }catch(Exception e){
@@ -112,7 +131,7 @@ public class ReaderLocalFiles {
                     } else if (s.contains(Constant.QC_COVERAGE)) {
                         qcDatas.setmControlCoverage(tmp[1]);
                     }
-                }
+            }
         }
 
     }

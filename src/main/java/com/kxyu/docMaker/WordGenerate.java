@@ -22,7 +22,6 @@ public class WordGenerate {
     public static void main(String[] args) throws IOException, TemplateException, CmdLineException {
 
             doMain(args);
-
     }
 
 

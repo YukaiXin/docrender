@@ -17,10 +17,6 @@ public class ChemotherapyData extends AbstractDocumentVo{
         this.mAnnotation = mAnnotation;
     }
 
-    public ChemotherapyData(String mDisease) {
-        this.mDisease = mDisease;
-    }
-
     public String mDisease;
 
     public String mDrug;
