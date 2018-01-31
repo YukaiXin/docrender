@@ -133,7 +133,49 @@ public class ReaderLocalFiles {
                     }
             }
         }
-
     }
+    public static ArrayList<Object> readBrcaData( ArrayList<Object> arrayList, File file){
+
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String s = null;
+            while((s = br.readLine())!=null){
+                String[] tmp = s.trim().split("\t");
+                if (tmp.length < 29){
+                    continue;
+                }
+
+                String tmpString = tmp[10].toLowerCase();
+
+                if(tmp[7].equals(Constant.BRCA_JUDGE_POINT) && !tmpString.contains(Constant.BRCA_JUDGE_PATHOGENIC) ){
+                    continue;
+                }
+
+                if(tmpString.contains(Constant.BRCA_JUDGE_BENGIN) && tmpString.contains(Constant.BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE)){
+
+                    arrayList.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_NO_CONFIRM));
+                    continue;
+                }
+
+                if((!tmpString.contains(Constant.BRCA_JUDGE_BENGIN)) && tmpString.contains(Constant.BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE)){
+                    arrayList.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_NO_SIGNIFICANCE));
+                    continue;
+                }
+
+                if((tmpString.contains(Constant.BRCA_JUDGE_BENGIN)) && (!tmpString.contains(Constant.BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE))){
+                    arrayList.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_BENGIN));
+                    continue;
+                }
+
+                arrayList.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10]));
+
+            }
+            br.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return arrayList;
+    }
+
 
 }

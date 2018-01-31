@@ -1,7 +1,6 @@
-package com.kxyu.docMaker;
+package com.kxyu.docMaker.cmd;
 
 
-import com.kxyu.docMaker.common.Constant;
 import org.kohsuke.args4j.Option;
 
 import java.io.File;

@@ -1,6 +1,8 @@
 package com.kxyu.docMaker;
 
 
+import com.kxyu.docMaker.cmd.Cmd;
+import com.kxyu.docMaker.cmd.CmdOption;
 import com.kxyu.docMaker.docDatas.ChemotherapyData;
 import com.kxyu.docMaker.docDatas.QcDatas;
 import freemarker.template.Configuration;
@@ -8,12 +10,10 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
-import sun.rmi.runtime.NewThreadAction;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static com.kxyu.docMaker.common.Constant.*;
@@ -31,7 +31,7 @@ public class WordGenerate {
         CmdLineParser parser = new CmdLineParser(cmdOption);
 
         if (args.length == 0){
-            showHelp(parser);
+            Cmd.showHelp(parser);
             return;
         }
 
@@ -51,9 +51,9 @@ public class WordGenerate {
         Template template = cfg.getTemplate(cmdOption.temlateFile);
         cfg.setDefaultEncoding(CHARSET_NAME_UTF_8);
         Map root =  new HashMap();
-        root.put(PATIENT_NAME, "");
-        root.put(PATIENT_AGE, "");
-        root.put(PATIENT_SEX, "");
+        root.put(PATIENT_NAME_KEY, "");
+        root.put(PATIENT_AGE_KEY, "");
+        root.put(PATIENT_SEX_KEY, "");
 
         File file = new File(cmdOption.chemotherapyFilePath);
         ArrayList<ChemotherapyData> arrayList = new ArrayList<>();
@@ -72,10 +72,7 @@ public class WordGenerate {
         System.out.println(OK);
     }
 
-    public static void showHelp(CmdLineParser parser){
-        System.out.println(CMD_OPTIONS_NULL);
-        parser.printUsage(System.out);
-    }
+
 
 
 }
