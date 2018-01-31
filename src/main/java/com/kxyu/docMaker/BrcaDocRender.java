@@ -69,5 +69,7 @@ public class BrcaDocRender {
         out.flush();
         out.close();
 
+
+        System.out.println("\n"+Constant.OK);
     }
 }
