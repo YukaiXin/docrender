@@ -5,14 +5,9 @@ import com.kxyu.docMaker.docDatas.ChemotherapyData;
 import com.kxyu.docMaker.docDatas.QcDatas;
 
 import java.io.*;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class ReaderLocalFiles {
-
 
     /* *
      * @author kxyu
@@ -81,7 +76,7 @@ public class ReaderLocalFiles {
     }
 
     /* *
-     * @author kxyuyuyu
+     * @author kxyu
      * @date 2018/1/25 13:30
      * @param  测序质控数据 肿瘤  对照组
      * @return   质控数据
@@ -134,13 +129,15 @@ public class ReaderLocalFiles {
             }
         }
     }
-    public static ArrayList<Object> readBrcaData( ArrayList<Object> arrayList, File file){
+
+    public static void readBrcaData(BrcaTableList brcaTableList, File file){
 
         try{
             BufferedReader br = new BufferedReader(new FileReader(file));
             String s = null;
             while((s = br.readLine())!=null){
                 String[] tmp = s.trim().split("\t");
+
                 if (tmp.length < 29){
                     continue;
                 }
@@ -152,30 +149,32 @@ public class ReaderLocalFiles {
                 }
 
                 if(tmpString.contains(Constant.BRCA_JUDGE_BENGIN) && tmpString.contains(Constant.BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE)){
-
-                    arrayList.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_NO_CONFIRM));
+                    brcaTableList.mBrcaUnKnownTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_NO_CONFIRM));
                     continue;
                 }
 
                 if((!tmpString.contains(Constant.BRCA_JUDGE_BENGIN)) && tmpString.contains(Constant.BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE)){
-                    arrayList.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_NO_SIGNIFICANCE));
+                    brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_NO_SIGNIFICANCE));
                     continue;
                 }
 
                 if((tmpString.contains(Constant.BRCA_JUDGE_BENGIN)) && (!tmpString.contains(Constant.BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE))){
-                    arrayList.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_BENGIN));
+                    brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_BENGIN));
                     continue;
                 }
 
-                arrayList.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10]));
+                if(tmpString.contains(Constant.BRCA_JUDGE_PATHOGENIC)){
+                    brcaTableList.mBrcaPathogenicTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_JUDGE_PATHOGENIC));
+                    continue;
+                }
 
+                brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10]));
             }
+
             br.close();
         }catch(Exception e){
             e.printStackTrace();
         }
-        return arrayList;
     }
-
 
 }

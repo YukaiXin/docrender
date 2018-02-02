@@ -32,43 +32,56 @@ public class BrcaDocRender {
         BrcaCmdOption cmdOption = new BrcaCmdOption();
         CmdLineParser parser = new CmdLineParser(cmdOption);
 
-        if (args.length == 0){
-            Cmd.showHelp(parser);
-            return;
-        }
-
+//        if (args.length == 0){
+//            Cmd.showHelp(parser);
+//            return;
+//        }
 
         parser.parseArgument(args);
 
-
+        BrcaTableList brcaTableList = new BrcaTableList();
         ArrayList<Object> ch_info = new ArrayList<>();
-        File file = new File(cmdOption.mBrcaData);
+        File file = new File("C:/Users/yuki_cool/yukaixin/docrender/src/main/resources/brca.txt");
+        ReaderLocalFiles.readBrcaData(brcaTableList, file);
 
         Map<String, Object> datas = new HashMap<String, Object>(){{
-            put(Constant.PATIENT_NAME_KEY, "");
+            put(PATIENT_NAME_KEY, "");
             put(PATIENT_AGE_KEY, "");
             put(PATIENT_SEX_KEY, "");
-            put(BRCA_DATE, DateUtil.format(DateUtil.getToday(), DateUtil.FORMATTER_OF_DATE));
-            put(BRCA_TABLE, new TableRenderData(new ArrayList<RenderData>(){{
+            put(BRCA_REPORT_DATE, DateUtil.format(DateUtil.getToday(), DateUtil.FORMATTER_OF_DATE));
+            put(BRCA_REPORT_TABLE, new TableRenderData(new ArrayList<RenderData>(){{
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENE));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_MUTION));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENOTYPE));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_DBSNP));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_CLINSIG));
-            }},ReaderLocalFiles.readBrcaData(ch_info, file), "no datas", 1600));
+            }}, brcaTableList.mBrcaBenignTable, "no datas", 1600));
+            put(BRCA_REPORT_TABLE_ONE, new TableRenderData(new ArrayList<RenderData>(){{
+                add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENE));
+                add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_MUTION));
+                add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENOTYPE));
+                add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_DBSNP));
+                add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_CLINSIG));
+            }}, brcaTableList.mBrcaPathogenicTable, "no datas", 1600));
+            put(BRCA_REPORT_TABLE_TWO, new TableRenderData(new ArrayList<RenderData>(){{
+                add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENE));
+                add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_MUTION));
+                add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENOTYPE));
+                add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_DBSNP));
+                add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_CLINSIG));
+            }}, brcaTableList.mBrcaUnKnownTable, "no datas", 1600));
         }};
 
         //读取模板，进行渲染
         XWPFTemplate doc = XWPFTemplate
-                .create(cmdOption.mDocTemplatePath);
+                .create("C:/Users/yuki_cool/yukaixin/docrender/src/main/resources/brca.docx");
         RenderAPI.render(doc, datas);
 
         //输出渲染后的文件
-        FileOutputStream out = new FileOutputStream(cmdOption.mOutput);
+        FileOutputStream out = new FileOutputStream("C:/Users/yuki_cool/yukaixin/docrender/src/main/resources/test.docx");
         doc.write(out);
         out.flush();
         out.close();
-
 
         System.out.println("\n"+Constant.OK);
     }
