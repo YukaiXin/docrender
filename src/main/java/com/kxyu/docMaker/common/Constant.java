@@ -107,20 +107,24 @@ public class Constant {
     public static   final String  BRCA_REPORT_STR_DURG_USE                       =  "适用";
     public static   final String  BRCA_REPORT_STR_DURG_NO_USE                    =  "不适用";
 
-    public static   final String  BRCA_TABLE_GENE                                =  "基因";
-    public static   final String  BRCA_TABLE_DBSNP                               =  "dbsnp";
-    public static   final String  BRCA_TABLE_HEAD_COLOR                          =  "FFD39B";
-    public static   final String  BRCA_TABLE_MUTION                              =  "突变名称";
-    public static   final String  BRCA_TABLE_CLINSIG                             =  "临床意义";
-    public static   final String  BRCA_TABLE_GENOTYPE                            =  "受检者基因型";
+    public static   final String  BRCA_TABLE_GENE                                =  "基因"+ "\t";
+    public static   final String  BRCA_TABLE_DBSNP                               =  "dbsnp"+ "\t";
+    public static   final String  BRCA_TABLE_HEAD_COLOR                          =  "FFD39B" + "\t";
+    public static   final String  BRCA_TABLE_MUTION                              =  "突变名称" + "\t";
+    public static   final String  BRCA_TABLE_CLINSIG                             =  "临床意义" + "\t" ;
+    public static   final String  BRCA_TABLE_GENOTYPE                            =  "基因型" + "\t";
 
     public static   final String  BRCA_JUDGE_POINT                               =  ".";
     public static   final String  BRCA_BENGIN                                    =  "良性";
     public static   final String  BRCA_NO_CONFIRM                                =  "待确认";
+    public static   final String  BRCA_STR_PATHOGENIC                            =  "致病突变";
     public static   final String  BRCA_NO_SIGNIFICANCE                           =  "意义未明";
     public static   final String  BRCA_JUDGE_BENGIN                              =  "benign";
     public static   final String  BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE              =  "uncertain significance";
     public static   final String  BRCA_JUDGE_PATHOGENIC                          =  "pathogenic";
+
+    public static   final String  BRCA_ONE_GENE                                  =  "BRCA1";
+    public static   final String  BRCA_TWO_GENE                                  =  "BRCA2";
 
     //BRCA CMD Option
     public static   final String  BRCA_CMD_OUTPUT_PATH                           =  "-output";
