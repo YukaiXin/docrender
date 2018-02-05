@@ -13,12 +13,14 @@ import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.kxyu.docMaker.ReaderLocalFiles.*;
 import static com.kxyu.docMaker.common.Constant.*;
 
 /**
@@ -36,13 +38,25 @@ public class BrcaDocRender {
 //            Cmd.showHelp(parser);
 //            return;
 //        }
-
+        bindDatas();
         parser.parseArgument(args);
+
+
+
+        System.out.println("\n"+Constant.OK);
+    }
+
+    public static void bindDatas() throws IOException {
 
         BrcaTableList brcaTableList = new BrcaTableList();
         ArrayList<Object> ch_info = new ArrayList<>();
         File file = new File("C:/Users/yuki_cool/yukaixin/docrender/src/main/resources/brca.txt");
         ReaderLocalFiles.readBrcaData(brcaTableList, file);
+
+        String mIsPathogenic = BRCA_REPORT_STR_RISK_LEVEL_LOW;
+        if(mBrca2Pathogenic != 0 || mBrca1Pathogenic != 0){
+            mIsPathogenic = BRCA_REPORT_STR_RISK_LEVEL_HIGHT;
+        }
 
         Map<String, Object> datas = new HashMap<String, Object>(){{
             put(PATIENT_NAME_KEY, "");
@@ -72,6 +86,38 @@ public class BrcaDocRender {
             }}, brcaTableList.mBrcaUnKnownTable, "no datas", 1600));
         }};
 
+        /**
+         * 致病风险
+         **/
+        datas.put(BRCA_REPORT_RISK, mIsPathogenic);
+
+        /**
+         * 意义未明
+         **/
+        String mNoSig = "";
+        if(mBrca1NoSi != 0 && mBrca2NoSi != 0){
+            mNoSig = BRCA_NO_SIGNIFICANCE_STR_BRCA_2 + BRCA_NO_SIGNIFICANCE_STR_BRCA_1;
+        } else if (mBrca1NoSi != 0){
+            mNoSig = BRCA_NO_SIGNIFICANCE_STR_BRCA_1;
+        } else if (mBrca2NoSi != 0){
+            mNoSig = BRCA_NO_SIGNIFICANCE_STR_BRCA_2;
+        } else {
+            mNoSig = BRCA_NO_SIGNFICANCE_NOT_FIND;
+        }
+        datas.put("mBrcaNoSiStr",  mNoSig);
+
+
+        /**
+         * 是否用药
+         * */
+        if(mBrca2Pathogenic != 0 || mBrca1Pathogenic != 0){
+            datas.put(BRCA_REPORT_DRUG, BRCA_REPORT_STR_DURG_USE);
+        } else {
+            datas.put(BRCA_REPORT_DRUG, BRCA_REPORT_STR_DURG_NO_USE);
+        }
+
+
+
         //读取模板，进行渲染
         XWPFTemplate doc = XWPFTemplate
                 .create("C:/Users/yuki_cool/yukaixin/docrender/src/main/resources/brca.docx");
@@ -82,7 +128,6 @@ public class BrcaDocRender {
         doc.write(out);
         out.flush();
         out.close();
-
-        System.out.println("\n"+Constant.OK);
     }
+
 }

@@ -130,11 +130,11 @@ public class ReaderLocalFiles {
         }
     }
 
-    public static int Brca1NoSi = 0;
-    public static int Brca2NoSi = 0;
+    public static int mBrca1NoSi = 0;
+    public static int mBrca2NoSi = 0;
 
-    public static int Brca1Begin = 0;
-    public static int Brca2Begin = 0;
+    public static int mBrca1Begin = 0;
+    public static int mBrca2Begin = 0;
 
     public static int mBrca1Pathogenic = 0;
     public static int mBrca2Pathogenic = 0;
@@ -173,10 +173,10 @@ public class ReaderLocalFiles {
 
                     switch (tmp[6]){
                         case Constant.BRCA_ONE_GENE:
-                            Brca1NoSi += 1;
+                            mBrca1NoSi += 1;
                             break;
                         case Constant.BRCA_TWO_GENE:
-                            Brca2NoSi += 1;
+                            mBrca2NoSi += 1;
                             break;
                     }
                     continue;
@@ -190,10 +190,10 @@ public class ReaderLocalFiles {
 
                     switch (tmp[6]){
                         case Constant.BRCA_ONE_GENE:
-                            Brca1Begin += 1;
+                            mBrca1Begin += 1;
                             break;
                         case Constant.BRCA_TWO_GENE:
-                            Brca2Begin += 2;
+                            mBrca2Begin += 1;
                             break;
                     }
                     continue;
@@ -207,7 +207,7 @@ public class ReaderLocalFiles {
                             mBrca1Pathogenic += 1;
                             break;
                         case Constant.BRCA_TWO_GENE:
-                            mBrca2Pathogenic += 2;
+                            mBrca2Pathogenic += 1;
                             break;
                     }
                     continue;
