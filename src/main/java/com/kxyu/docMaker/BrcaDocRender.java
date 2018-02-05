@@ -63,13 +63,15 @@ public class BrcaDocRender {
             put(PATIENT_AGE_KEY, "");
             put(PATIENT_SEX_KEY, "");
             put(BRCA_REPORT_DATE, DateUtil.format(DateUtil.getToday(), DateUtil.FORMATTER_OF_DATE));
+            put(BRCA_REPORT_ONE_BENIGN_COUNT, String.valueOf(mBrca1Begin));
+            put(BRCA_REPORT_TWO_BENIGN_COUNT, String.valueOf(mBrca2Begin));
             put(BRCA_REPORT_TABLE, new TableRenderData(new ArrayList<RenderData>(){{
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENE));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_MUTION));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENOTYPE));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_DBSNP));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_CLINSIG));
-            }}, brcaTableList.mBrcaBenignTable, "no datas", 1600));
+            }}, brcaTableList.mBrcaBenignTable, "no datas", 9600));
             put(BRCA_REPORT_TABLE_ONE, new TableRenderData(new ArrayList<RenderData>(){{
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENE));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_MUTION));
@@ -83,7 +85,7 @@ public class BrcaDocRender {
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENOTYPE));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_DBSNP));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_CLINSIG));
-            }}, brcaTableList.mBrcaUnKnownTable, "no datas", 1600));
+            }}, brcaTableList.mBrcaUnKnownTable, "no datas", 9600));
         }};
 
         /**
@@ -104,12 +106,13 @@ public class BrcaDocRender {
         } else {
             mNoSig = BRCA_NO_SIGNFICANCE_NOT_FIND;
         }
+        System.out.println(mNoSig);
         datas.put("mBrcaNoSiStr",  mNoSig);
 
 
         /**
          * 是否用药
-         * */
+         **/
         if(mBrca2Pathogenic != 0 || mBrca1Pathogenic != 0){
             datas.put(BRCA_REPORT_DRUG, BRCA_REPORT_STR_DURG_USE);
         } else {

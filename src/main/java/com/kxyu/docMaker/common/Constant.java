@@ -112,7 +112,7 @@ public class Constant {
     public static   final String  BRCA_REPORT_STR_DURG_USE                       =  "适用";
     public static   final String  BRCA_REPORT_STR_DURG_NO_USE                    =  "不适用";
 
-    public static   final String  BRCA_TABLE_GENE                                =  "基因"+ "\t";
+    public static   final String  BRCA_TABLE_GENE                                =  "基因 "+ "\t";
     public static   final String  BRCA_TABLE_DBSNP                               =  "dbsnp"+ "\t";
     public static   final String  BRCA_TABLE_HEAD_COLOR                          =  "FFD39B" + "\t";
     public static   final String  BRCA_TABLE_MUTION                              =  "突变名称" + "\t";
