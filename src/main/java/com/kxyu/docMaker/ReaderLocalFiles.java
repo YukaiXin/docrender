@@ -21,7 +21,6 @@ public class ReaderLocalFiles {
             BufferedReader br = new BufferedReader(new FileReader(file));//构造一个BufferedReader类来读取文件
             String s = null;
             while((s = br.readLine())!=null){//使用readLine方法，一次读一行
-
                 result.append(System.lineSeparator()+s);
             }
             br.close();
@@ -140,7 +139,13 @@ public class ReaderLocalFiles {
     public static int mBrca2Pathogenic = 0;
 
 
-
+  /* *
+   * @author kxyuyuyu
+   * @date 2018/2/6 9:56
+   * @param
+   * @return
+   * 6.基因  7.突变名称  8.基因型  9.dbsnp  10.临床意义
+   */
     public static void readBrcaData(BrcaTableList brcaTableList, File file){
 
         try{
@@ -155,7 +160,9 @@ public class ReaderLocalFiles {
 
                 String tmpString = tmp[10].toLowerCase();
 
-                if(tmp[7].equals(Constant.BRCA_JUDGE_POINT) && !tmpString.contains(Constant.BRCA_JUDGE_PATHOGENIC) )
+                if(tmp[7].equals(Constant.BRCA_JUDGE_POINT) && !tmpString.contains(Constant.BRCA_JUDGE_PATHOGENIC) ){
+                    continue;
+                }
 
                 /**待确认
                  *

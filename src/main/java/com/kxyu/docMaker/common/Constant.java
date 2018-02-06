@@ -140,6 +140,4 @@ public class Constant {
     public static   String  BRCA_NO_SIGNIFICANCE_STR_BRCA_1                      =  ",在受检者中发现BRCA1基因的"+ String.valueOf(mBrca1NoSi)+"个意义未明突变";
     public static   String  BRCA_NO_SIGNFICANCE_NOT_FIND                         =  "，未发现意义未名突变";
 
-
-
 }
