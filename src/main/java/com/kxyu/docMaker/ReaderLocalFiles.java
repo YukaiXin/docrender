@@ -3,6 +3,9 @@ package com.kxyu.docMaker;
 import com.kxyu.docMaker.common.Constant;
 import com.kxyu.docMaker.docDatas.ChemotherapyData;
 import com.kxyu.docMaker.docDatas.QcDatas;
+import com.kxyu.docMaker.utils.StringUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.poi.util.StringUtil;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -145,7 +148,8 @@ public class ReaderLocalFiles {
    * @param
    * @return
    * 6.基因  7.突变名称  8.基因型  9.dbsnp  10.临床意义
-   */
+   *
+   **/
     public static void readBrcaData(BrcaTableList brcaTableList, File file){
 
         try{
@@ -219,7 +223,6 @@ public class ReaderLocalFiles {
                     }
                     continue;
                 }
-
                 brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10]));
             }
 
@@ -227,5 +230,15 @@ public class ReaderLocalFiles {
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void HandlePathogenic (String mutectionStr){
+
+       if(mutectionStr.isEmpty()){
+           return;
+       }
+
+       String[] tmp = mutectionStr.split(":");
+
     }
 }
