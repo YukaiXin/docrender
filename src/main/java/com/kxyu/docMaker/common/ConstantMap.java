@@ -2,7 +2,6 @@ package com.kxyu.docMaker.common;
 
 import java.util.HashMap;
 
-import static com.sun.javafx.fxml.expression.Expression.add;
 
 /**
  * @Author: kxyuyuyu
@@ -11,25 +10,25 @@ import static com.sun.javafx.fxml.expression.Expression.add;
 public class ConstantMap {
 
  final  public static HashMap<Character, String>  mAaMap= new HashMap<Character, String>(){{
-        add("R", "精氨酸");
-        add("D", "天冬氨酸");
-        add("C", "半胱氨酸");
-        add("Q", "谷氨酰胺");
-        add("Q", "谷氨酸");
-        add("E", "组氨酸");
-        add("H", "异亮氨酸");
-        add("I", "甘氨酸");
-        add("G", "天冬酰胺");
-        add("N", "亮氨酸");
-        add("L", "赖氨酸");
-        add("K", "甲硫氨酸");
-        add("M", "苯丙氨酸");
-        add("F", "脯氨酸");
-        add("P", "丝氨酸");
-        add("S", "苏氨酸");
-        add("T", "色氨酸");
-        add("W", "酪氨酸");
-        add("V", "缬氨酸");
-        add("A", "丙氨酸");
+        put('R', "精氨酸");
+        put('D', "天冬氨酸");
+        put('C', "半胱氨酸");
+        put('Q', "谷氨酰胺");
+        put('E', "谷氨酸");
+        put('H', "组氨酸");
+        put('I', "异亮氨酸");
+        put('G', "甘氨酸");
+        put('N', "天冬酰胺");
+        put('L', "亮氨酸");
+        put('K', "赖氨酸");
+        put('M', "甲硫氨酸");
+        put('F', "苯丙氨酸");
+        put('P', "脯氨酸");
+        put('S', "丝氨酸");
+        put('T', "苏氨酸");
+        put('W', "色氨酸");
+        put('Y', "酪氨酸");
+        put('V', "缬氨酸");
+        put('A', "丙氨酸");
     }};
 }

@@ -106,7 +106,7 @@ public class BrcaDocRender {
         } else {
             mNoSig = BRCA_NO_SIGNFICANCE_NOT_FIND;
         }
-        System.out.println(mNoSig);
+
         datas.put("mBrcaNoSiStr",  mNoSig);
 
 
@@ -119,21 +119,30 @@ public class BrcaDocRender {
             datas.put(BRCA_REPORT_DRUG, BRCA_REPORT_STR_DURG_NO_USE);
         }
 
+        String mPathogenicTxt = "";
         /**
          * 致病头字段
          */
-        if (mBrca1Pathogenic > 0 && mBrca2Pathogenic != 0){
+        if (mBrca1Pathogenic > 0 && mBrca2Pathogenic == 0){
+
             String mBrca1HeadTxt = "在受检者中检出BRCA1基因"+ String.valueOf(mBrca1Pathogenic)+"个致病突变";
-        }else if (mBrca1Pathogenic != 0 && mBrca2Pathogenic > 0){
-            String mBrca2HeadTxt = "在受检者中检出BRCA2基因"+ String.valueOf(mBrca2Pathogenic)+"个致病突变";
+            mPathogenicTxt = mBrca1HeadTxt + mBrca1Txt;
+        }else if (mBrca1Pathogenic == 0 && mBrca2Pathogenic > 0){
+
+            String mBrca2HeadTxt = "在受检者中检出BRCA2基因"+String.valueOf(mBrca2Pathogenic)+"个致病突变";
+            mPathogenicTxt = mBrca2HeadTxt + mBrca2Txt;
         } else if(mBrca2Pathogenic > 0 && mBrca1Pathogenic > 0){
+
             String mBrca1HeadTxt = "在受检者中检出BRCA1基因"+ String.valueOf(mBrca1Pathogenic)+"个致病突变";
-            String mBrca2HeadTxt = ",BRCA2基因"+ String.valueOf(mBrca2Pathogenic)+"个致病突变";
+            String mBrca2HeadTxt = ";BRCA2基因"+ String.valueOf(mBrca2Pathogenic)+"个致病突变";
+            mPathogenicTxt = mBrca1HeadTxt + mBrca1Txt + mBrca2HeadTxt + mBrca2Txt;
         } else {
-            String mHeadTxt      = "在受检者中未检出BRCA1/BRCA2基因的任何致病或疑似致病突变。";
+
+            String mNoPathogenicTxt = "在受检者中未检出BRCA1/BRCA2基因的任何致病或疑似致病突变。";
+            mPathogenicTxt = mNoPathogenicTxt;
         }
 
-
+        datas.put(BRCA_REPORT_DETECTION_RESULT, mPathogenicTxt);
 
         //读取模板，进行渲染
         XWPFTemplate doc = XWPFTemplate

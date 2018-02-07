@@ -152,9 +152,9 @@ public class ReaderLocalFiles {
    * 6.基因  7.突变名称  8.基因型  9.dbsnp  10.临床意义
    *
    **/
-    public static String mBrca1Txt;
+    public static String mBrca1Txt = "";
 
-    public static String mBrca2Txt;
+    public static String mBrca2Txt = "";
 
     public static void readBrcaData(BrcaTableList brcaTableList, File file){
 
@@ -254,12 +254,11 @@ public class ReaderLocalFiles {
      */
     public static String HandlePathogenicTxt (String mutectionStr, boolean isBrca1){
 
-       if(mutectionStr.isEmpty()){
-           return null;
+       if(mutectionStr.isEmpty() || mutectionStr.equals("")){
+           return "";
        }
        String txt = "";
        String pStr  = mutectionStr.replace("\n", "");
-       mutectionStr = "NM_007294.3:" + "c. 5470_5477del TGCCCAAT";
        if(mutectionStr.contains("del")){
            //编码区XXXX位置的X个碱基缺失突变，影响蛋白质功能
             String[] tmp  = pStr.split(":");
@@ -292,19 +291,24 @@ public class ReaderLocalFiles {
         }else {
            //编码区XXXX位置XX氨基酸变为XXX氨基酸，为致病突变
            String[] tmp   = pStr.split(":");
+
            String[] tmp1  = tmp[1].split(" ");
 
-           tmp1[1].replace("c.", "");
-           tmp1[1].replace("T", "");
-           tmp1[1].replace("A", "");
-           tmp1[1].replace("C", "");
-           tmp1[1].replace("G", "");
+
+           //Del AGCT
+           String tmpStr = tmp[1];
+           tmpStr = tmpStr.replace("T", "");
+           tmpStr = tmpStr.replace("A", "");
+           tmpStr = tmpStr.replace("C", "");
+           tmpStr = tmpStr.replace("G", "");
+           tmpStr = tmpStr.replace(">", "");
+           tmpStr = tmpStr.replace("c.", "");
 
 
-           String oldA         = ConstantMap.mAaMap.get(tmp1[2].charAt(2));
-           String newA         = ConstantMap.mAaMap.get(tmp1[2].charAt(tmp1[2].length()-1));
+           String oldA         = ConstantMap.mAaMap.get(tmp[2].charAt(2));
+           String newA         = ConstantMap.mAaMap.get(tmp[2].charAt(tmp[2].length()-1));
+           txt                 = "，编码区"+tmpStr+"位置"+ oldA + "变为" + newA +",为致病突变";
 
-           txt          = "，编码区"+tmp1[1]+"位置"+ oldA + "变为" + newA +",为致病突变";
        }
        return txt;
     }
