@@ -5,6 +5,7 @@ import com.kxyu.docMaker.common.ConstantMap;
 import com.kxyu.docMaker.docDatas.ChemotherapyData;
 import com.kxyu.docMaker.docDatas.QcDatas;
 import com.kxyu.docMaker.utils.StringUtils;
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.poi.util.StringUtil;
 
@@ -151,6 +152,10 @@ public class ReaderLocalFiles {
    * 6.基因  7.突变名称  8.基因型  9.dbsnp  10.临床意义
    *
    **/
+    public static String mBrca1Txt;
+
+    public static String mBrca2Txt;
+
     public static void readBrcaData(BrcaTableList brcaTableList, File file){
 
         try{
@@ -218,12 +223,12 @@ public class ReaderLocalFiles {
                         case Constant.BRCA_ONE_GENE:
                             mBrca1Pathogenic += 1;
 
-                            //TODO:
+                            mBrca1Txt += HandlePathogenicTxt(tmp[7], true);
                             break;
                         case Constant.BRCA_TWO_GENE:
                             mBrca2Pathogenic += 1;
 
-                            //TODO:
+                            mBrca2Txt += HandlePathogenicTxt(tmp[7], false);
                             break;
                     }
                     continue;
@@ -241,13 +246,18 @@ public class ReaderLocalFiles {
      *
      * TODO: indel  snp  ins
      */
-
-
-    public void HandlePathogenic (String mutectionStr){
+    /* *
+     * @author kxyuyuyu
+     * @date 2018/2/7 15:27
+     * @param    Brca1 is true
+     * @return
+     */
+    public static String HandlePathogenicTxt (String mutectionStr, boolean isBrca1){
 
        if(mutectionStr.isEmpty()){
-           return;
+           return null;
        }
+       String txt = "";
        String pStr  = mutectionStr.replace("\n", "");
        mutectionStr = "NM_007294.3:" + "c. 5470_5477del TGCCCAAT";
        if(mutectionStr.contains("del")){
@@ -260,29 +270,29 @@ public class ReaderLocalFiles {
             tmp1[1].replace("del", "");
 
             //缺失数
-            String count    = String.valueOf(tmp1[2].length());
+            String count   = String.valueOf(tmp1[2].length());
 
-            String position = "，编码区" + tmp1[1] + "位置的" + count + "个碱基缺失突变，影响蛋白功能";
+           txt             = "，编码区" + tmp1[1] + "位置的" + count + "个碱基缺失突变，影响蛋白功能";
 
-
-
+            return txt;
         } else if(mutectionStr.contains("ins")){
            //编码区XXXX位置的X个碱基插入突变，影响蛋白质功能
-           String[] tmp  = pStr.split(":");
-           String[] tmp1 = tmp[1].split(" ");
+           String[] tmp    = pStr.split(":");
+           String[] tmp1   = tmp[1].split(" ");
 
            //编码区位置
            tmp1[1].replace("_", "-");
            tmp1[1].replace("ins", "");
 
            //缺失数
-           String count = String.valueOf(tmp1[2].length());
+           String count   = String.valueOf(tmp1[2].length());
 
-           String txt = "，编码区" + tmp1[1] + "位置的" + count + "个碱基插入突变，影响蛋白功能";
+           txt            = "，编码区" + tmp1[1] + "位置的" + count + "个碱基插入突变，影响蛋白功能";
+           return txt;
         }else {
            //编码区XXXX位置XX氨基酸变为XXX氨基酸，为致病突变
-           String[] tmp = pStr.split(":");
-           String[] tmp1 = tmp[1].split(" ");
+           String[] tmp   = pStr.split(":");
+           String[] tmp1  = tmp[1].split(" ");
 
            tmp1[1].replace("c.", "");
            tmp1[1].replace("T", "");
@@ -294,9 +304,8 @@ public class ReaderLocalFiles {
            String oldA         = ConstantMap.mAaMap.get(tmp1[2].charAt(2));
            String newA         = ConstantMap.mAaMap.get(tmp1[2].charAt(tmp1[2].length()-1));
 
-           String txt          = "，编码区"+tmp1[1]+"位置"+ oldA + "变为" + newA +",为致病突变";
+           txt          = "，编码区"+tmp1[1]+"位置"+ oldA + "变为" + newA +",为致病突变";
        }
-
-       String[] tmp = mutectionStr.split(":");
+       return txt;
     }
 }
