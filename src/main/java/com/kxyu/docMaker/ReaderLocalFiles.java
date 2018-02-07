@@ -1,6 +1,7 @@
 package com.kxyu.docMaker;
 
 import com.kxyu.docMaker.common.Constant;
+import com.kxyu.docMaker.common.ConstantMap;
 import com.kxyu.docMaker.docDatas.ChemotherapyData;
 import com.kxyu.docMaker.docDatas.QcDatas;
 import com.kxyu.docMaker.utils.StringUtils;
@@ -97,21 +98,21 @@ public class ReaderLocalFiles {
         while((s = br.readLine())!=null){//使用readLine方法，一次读一行
             String[] tmp = s.trim().split("\t");
             if(isCancer) {
-                if (s.contains(Constant.QC_TOTAL_READS)) {
-                    qcDatas.setmCancerDatasSize(tmp[1]);
-                } else if (s.contains(Constant.QC_PROPERLY_MAPPED)) {
-                    qcDatas.setmCancerMapped(tmp[1]);
-                } else if (s.contains(Constant.QC_TARGET_REGION)) {
-                    qcDatas.setmCancerTargetRegion(tmp[1]);
-                } else if (s.contains(Constant.QC_TOTAL_EFFECTIVE_YIELD)) {
-                    qcDatas.setmCancerTotalEffectiveYield(tmp[1]);
-                } else if (s.contains(Constant.QC_EFFECTIVE_YIELD_ON_TARGET)) {
-                    qcDatas.setmCancerEffectiveYieldOnTarget(tmp[1]);
-                } else if (s.contains(Constant.QC_AVERAGE_SEQUENCE)) {
-                    qcDatas.setmCancerAverageSequenceDepths(tmp[1]);
-                } else if (s.contains(Constant.QC_COVERAGE)) {
-                    qcDatas.setmCancerCoverage(tmp[1]);
-                }
+                    if (s.contains(Constant.QC_TOTAL_READS)) {
+                        qcDatas.setmCancerDatasSize(tmp[1]);
+                    } else if (s.contains(Constant.QC_PROPERLY_MAPPED)) {
+                        qcDatas.setmCancerMapped(tmp[1]);
+                    } else if (s.contains(Constant.QC_TARGET_REGION)) {
+                        qcDatas.setmCancerTargetRegion(tmp[1]);
+                    } else if (s.contains(Constant.QC_TOTAL_EFFECTIVE_YIELD)) {
+                        qcDatas.setmCancerTotalEffectiveYield(tmp[1]);
+                    } else if (s.contains(Constant.QC_EFFECTIVE_YIELD_ON_TARGET)) {
+                        qcDatas.setmCancerEffectiveYieldOnTarget(tmp[1]);
+                    } else if (s.contains(Constant.QC_AVERAGE_SEQUENCE)) {
+                        qcDatas.setmCancerAverageSequenceDepths(tmp[1]);
+                    } else if (s.contains(Constant.QC_COVERAGE)) {
+                        qcDatas.setmCancerCoverage(tmp[1]);
+                    }
             }else {
                     if (s.contains(Constant.QC_TOTAL_READS)) {
                         qcDatas.setmControlDataSize(tmp[1]);
@@ -216,9 +217,13 @@ public class ReaderLocalFiles {
                     switch (tmp[6]){
                         case Constant.BRCA_ONE_GENE:
                             mBrca1Pathogenic += 1;
+
+                            //TODO:
                             break;
                         case Constant.BRCA_TWO_GENE:
                             mBrca2Pathogenic += 1;
+
+                            //TODO:
                             break;
                     }
                     continue;
@@ -232,13 +237,66 @@ public class ReaderLocalFiles {
         }
     }
 
+    /**
+     *
+     * TODO: indel  snp  ins
+     */
+
+
     public void HandlePathogenic (String mutectionStr){
 
        if(mutectionStr.isEmpty()){
            return;
        }
+       String pStr  = mutectionStr.replace("\n", "");
+       mutectionStr = "NM_007294.3:" + "c. 5470_5477del TGCCCAAT";
+       if(mutectionStr.contains("del")){
+           //编码区XXXX位置的X个碱基缺失突变，影响蛋白质功能
+            String[] tmp  = pStr.split(":");
+            String[] tmp1 = tmp[1].split(" ");
+
+           //编码区位置
+            tmp1[1].replace("_", "-");
+            tmp1[1].replace("del", "");
+
+            //缺失数
+            String count    = String.valueOf(tmp1[2].length());
+
+            String position = "，编码区" + tmp1[1] + "位置的" + count + "个碱基缺失突变，影响蛋白功能";
+
+
+
+        } else if(mutectionStr.contains("ins")){
+           //编码区XXXX位置的X个碱基插入突变，影响蛋白质功能
+           String[] tmp  = pStr.split(":");
+           String[] tmp1 = tmp[1].split(" ");
+
+           //编码区位置
+           tmp1[1].replace("_", "-");
+           tmp1[1].replace("ins", "");
+
+           //缺失数
+           String count = String.valueOf(tmp1[2].length());
+
+           String txt = "，编码区" + tmp1[1] + "位置的" + count + "个碱基插入突变，影响蛋白功能";
+        }else {
+           //编码区XXXX位置XX氨基酸变为XXX氨基酸，为致病突变
+           String[] tmp = pStr.split(":");
+           String[] tmp1 = tmp[1].split(" ");
+
+           tmp1[1].replace("c.", "");
+           tmp1[1].replace("T", "");
+           tmp1[1].replace("A", "");
+           tmp1[1].replace("C", "");
+           tmp1[1].replace("G", "");
+
+
+           String oldA         = ConstantMap.mAaMap.get(tmp1[2].charAt(2));
+           String newA         = ConstantMap.mAaMap.get(tmp1[2].charAt(tmp1[2].length()-1));
+
+           String txt          = "，编码区"+tmp1[1]+"位置"+ oldA + "变为" + newA +",为致病突变";
+       }
 
        String[] tmp = mutectionStr.split(":");
-
     }
 }

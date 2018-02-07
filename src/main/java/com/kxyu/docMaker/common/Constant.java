@@ -114,10 +114,10 @@ public class Constant {
 
     public static   final String  BRCA_TABLE_GENE                                =  "基因 "+ "\t";
     public static   final String  BRCA_TABLE_DBSNP                               =  "dbsnp"+ "\t";
+    public static   final String  BRCA_TABLE_GENOTYPE                            =  "基因型" + "\t";
     public static   final String  BRCA_TABLE_HEAD_COLOR                          =  "FFD39B" + "\t";
     public static   final String  BRCA_TABLE_MUTION                              =  "突变名称" + "\t";
-    public static   final String  BRCA_TABLE_CLINSIG                             =  "临床意义" + "\t" ;
-    public static   final String  BRCA_TABLE_GENOTYPE                            =  "基因型" + "\t";
+    public static   final String  BRCA_TABLE_CLINSIG                             =  "临床意义" + "\t";
 
     public static   final String  BRCA_JUDGE_POINT                               =  ".";
     public static   final String  BRCA_BENGIN                                    =  "良性";
@@ -138,6 +138,8 @@ public class Constant {
 
     public static   String  BRCA_NO_SIGNIFICANCE_STR_BRCA_2                      =  ",在受检者中发现BRCA2基因的"+ String.valueOf(mBrca2NoSi)+"个意义未明突变";
     public static   String  BRCA_NO_SIGNIFICANCE_STR_BRCA_1                      =  ",在受检者中发现BRCA1基因的"+ String.valueOf(mBrca1NoSi)+"个意义未明突变";
-    public static   String  BRCA_NO_SIGNFICANCE_NOT_FIND                         =  "，未发现意义未名突变";
+    public static   String  BRCA_NO_SIGNFICANCE_NOT_FIND                         =  ",未发现意义未明突变";
 
-}
+    public static   String  BRCA_ONE_PATHOGENIC_DEL_STR                          =  "编码区"+""+"位置的"+""+"个碱基缺失，为移码突变，影响蛋白功能";
+
+ }

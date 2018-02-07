@@ -10,7 +10,7 @@ import static com.sun.javafx.fxml.expression.Expression.add;
  */
 public class ConstantMap {
 
- final  public static HashMap<String, String>  mAaMap= new HashMap<String, String>(){{
+ final  public static HashMap<Character, String>  mAaMap= new HashMap<Character, String>(){{
         add("R", "精氨酸");
         add("D", "天冬氨酸");
         add("C", "半胱氨酸");
