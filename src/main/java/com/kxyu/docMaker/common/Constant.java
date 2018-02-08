@@ -1,7 +1,7 @@
 package com.kxyu.docMaker.common;
 
-import static com.kxyu.docMaker.ReaderLocalFiles.mBrca1NoSi;
-import static com.kxyu.docMaker.ReaderLocalFiles.mBrca2NoSi;
+
+import static com.kxyu.docMaker.Brca.BrcaReaderLocalFile.*;
 
 /**
  * @Author: kxyuyuyu
@@ -85,61 +85,5 @@ public class Constant {
     public static  final String  POI_CHEMOTHERAPY_TABLE_CLINIC                   =  "临床指导";
 
 
-    /************************
-     ************************
-     **********BRCA***********
-     ************************
-     ************************/
-
-    public static   final String  BRCA_REPORT_DATE                               =  "date";
-    public static   final String  BRCA_REPORT_RISK                               =  "mRisk";
-    public static   final String  BRCA_REPORT_DRUG                               =  "mIsUseDrug";
-    public static   final String  BRCA_REPORT_TABLE                              =  "mBrcaTable";
-    public static   final String  BRCA_REPORT_TABLE_ONE                          =  "mBrcaTable1";
-    public static   final String  BRCA_REPORT_TABLE_TWO                          =  "mBrcaTable2";
-    public static   final String  BRCA_REPORT_TWO_UNKNOWN_COUNT                  =  "mBrca2Unknown";
-    public static   final String  BRCA_REPORT_ONE_UNKNOWN_COUNT                  =  "mBrca1Unknown";
-    public static   final String  BRCA_REPORT_DETECTION_RESULT                   =  "mDetectionResult";
-    public static   final String  BRCA_REPORT_ONE_BENIGN_COUNT                   =  "mBrca1BenignCount";
-    public static   final String  BRCA_REPORT_TWO_BENIGN_COUNT                   =  "mBrca2BenignCount";
-
-    public static   final String  BRCA_REPORT_STR_YIN_DETECTION_RESULT           =  "本次检测，在受检者中未检出BRCA1/BRCA2基因的任何致病或疑似致病突变。";
-    public static   final String  BRCA_REPORT_STR_YANG_DETECTION_RESULT          =  "编码区XX位置的XX氨基酸突变为XX氨基酸，为致病性/疑似致病突变";
-    public static   final String  BRCA_REPORT_STR_YANG_DETECTION_RESULT_ONE      =  "啊啊";
-
-    public static   final String  BRCA_REPORT_STR_RISK_LEVEL_LOW                 =  "低";
-    public static   final String  BRCA_REPORT_STR_RISK_LEVEL_HIGHT               =  "高";
-    public static   final String  BRCA_REPORT_STR_DURG_USE                       =  "适用";
-    public static   final String  BRCA_REPORT_STR_DURG_NO_USE                    =  "不适用";
-
-    public static   final String  BRCA_TABLE_GENE                                =  "基因 "+ "\t";
-    public static   final String  BRCA_TABLE_DBSNP                               =  "dbsnp"+ "\t";
-    public static   final String  BRCA_TABLE_GENOTYPE                            =  "基因型" + "\t";
-    public static   final String  BRCA_TABLE_HEAD_COLOR                          =  "FFD39B" + "\t";
-    public static   final String  BRCA_TABLE_MUTION                              =  "突变名称" + "\t";
-    public static   final String  BRCA_TABLE_CLINSIG                             =  "临床意义" + "\t";
-
-    public static   final String  BRCA_JUDGE_POINT                               =  ".";
-    public static   final String  BRCA_BENGIN                                    =  "良性";
-    public static   final String  BRCA_NO_CONFIRM                                =  "待确认";
-    public static   final String  BRCA_STR_PATHOGENIC                            =  "致病突变";
-    public static   final String  BRCA_NO_SIGNIFICANCE                           =  "意义未明";
-    public static   final String  BRCA_JUDGE_BENGIN                              =  "benign";
-    public static   final String  BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE              =  "uncertain significance";
-    public static   final String  BRCA_JUDGE_PATHOGENIC                          =  "pathogenic";
-
-    public static   final String  BRCA_ONE_GENE                                  =  "BRCA1";
-    public static   final String  BRCA_TWO_GENE                                  =  "BRCA2";
-
-    //BRCA CMD Option
-    public static   final String  BRCA_CMD_OUTPUT_PATH                           =  "-output";
-    public static   final String  BRCA_CMD_DOC_TEMPLATE_PATH                     =  "-doctemplate";
-    public static   final String  BRCA_CMD_DATA_PATH                             =  "-data";
-
-    public static   String  BRCA_NO_SIGNIFICANCE_STR_BRCA_2                      =  ",在受检者中发现BRCA2基因的"+ String.valueOf(mBrca2NoSi)+"个意义未明突变";
-    public static   String  BRCA_NO_SIGNIFICANCE_STR_BRCA_1                      =  ",在受检者中发现BRCA1基因的"+ String.valueOf(mBrca1NoSi)+"个意义未明突变";
-    public static   String  BRCA_NO_SIGNFICANCE_NOT_FIND                         =  ",未发现意义未明突变";
-
-    public static   String  BRCA_ONE_PATHOGENIC_DEL_STR                          =  "编码区"+""+"位置的"+""+"个碱基缺失，为移码突变，影响蛋白功能";
 
  }

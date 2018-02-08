@@ -6,21 +6,19 @@ import com.deepoove.poi.data.TableRenderData;
 import com.deepoove.poi.data.TextRenderData;
 import com.deepoove.poi.render.RenderAPI;
 import com.kxyu.docMaker.cmd.BrcaCmdOption;
-import com.kxyu.docMaker.cmd.Cmd;
-import com.kxyu.docMaker.common.Constant;
 import com.kxyu.docMaker.utils.DateUtil;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.kxyu.docMaker.ReaderLocalFiles.*;
+import static com.kxyu.docMaker.Brca.BrcaReaderLocalFile.*;
+import static com.kxyu.docMaker.Brca.Constant.*;
 import static com.kxyu.docMaker.common.Constant.*;
 
 /**
@@ -43,15 +41,26 @@ public class BrcaDocRender {
 
 
 
-        System.out.println("\n"+Constant.OK);
+        System.out.println("\n"+OK);
     }
 
     public static void bindDatas() throws IOException {
 
         BrcaTableList brcaTableList = new BrcaTableList();
         ArrayList<Object> ch_info = new ArrayList<>();
-        File file = new File("C:/Users/yuki_cool/yukaixin/docrender/src/main/resources/brca.txt");
-        ReaderLocalFiles.readBrcaData(brcaTableList, file);
+        File file = new File("C:/Users/yuki_cool/yukaixin/docrender/src/main/resources/BRCA.txt");
+
+        readBrcaData(brcaTableList, file);
+
+        if(brcaTableList.mBrcaBenignTable.size() == 0){
+            brcaTableList.mBrcaBenignTable.add(BRCA_TABLE_NO_DATAS);
+        }
+        if(brcaTableList.mBrcaPathogenicTable.size() == 0){
+            brcaTableList.mBrcaPathogenicTable.add(BRCA_TABLE_NO_DATAS);
+        }
+        if(brcaTableList.mBrcaUnKnownTable.size() == 0){
+            brcaTableList.mBrcaUnKnownTable.add(BRCA_TABLE_NO_DATAS);
+        }
 
         String mIsPathogenic = BRCA_REPORT_STR_RISK_LEVEL_LOW;
         if(mBrca2Pathogenic != 0 || mBrca1Pathogenic != 0){
@@ -109,7 +118,6 @@ public class BrcaDocRender {
 
         datas.put("mBrcaNoSiStr",  mNoSig);
 
-
         /**
          * 是否用药
          **/
@@ -125,20 +133,20 @@ public class BrcaDocRender {
          */
         if (mBrca1Pathogenic > 0 && mBrca2Pathogenic == 0){
 
-            String mBrca1HeadTxt = "在受检者中检出BRCA1基因"+ String.valueOf(mBrca1Pathogenic)+"个致病突变";
+            String mBrca1HeadTxt = BRCA_ONE_TXT_HEAD;
             mPathogenicTxt = mBrca1HeadTxt + mBrca1Txt;
         }else if (mBrca1Pathogenic == 0 && mBrca2Pathogenic > 0){
 
-            String mBrca2HeadTxt = "在受检者中检出BRCA2基因"+String.valueOf(mBrca2Pathogenic)+"个致病突变";
+            String mBrca2HeadTxt = BRCA_TWO_TXT_HEAD;
             mPathogenicTxt = mBrca2HeadTxt + mBrca2Txt;
         } else if(mBrca2Pathogenic > 0 && mBrca1Pathogenic > 0){
 
-            String mBrca1HeadTxt = "在受检者中检出BRCA1基因"+ String.valueOf(mBrca1Pathogenic)+"个致病突变";
-            String mBrca2HeadTxt = ";BRCA2基因"+ String.valueOf(mBrca2Pathogenic)+"个致病突变";
+            String mBrca1HeadTxt =BRCA_ONE_TXT_HEAD;
+            String mBrca2HeadTxt = BRCA_TWO_TXT_HEAD_2;
             mPathogenicTxt = mBrca1HeadTxt + mBrca1Txt + mBrca2HeadTxt + mBrca2Txt;
         } else {
 
-            String mNoPathogenicTxt = "在受检者中未检出BRCA1/BRCA2基因的任何致病或疑似致病突变。";
+            String mNoPathogenicTxt = BRCA_REPORT_STR_YIN_DETECTION_RESULT;
             mPathogenicTxt = mNoPathogenicTxt;
         }
 
