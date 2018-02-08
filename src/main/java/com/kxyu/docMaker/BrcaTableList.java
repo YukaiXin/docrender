@@ -8,37 +8,22 @@ import java.util.ArrayList;
  */
 public class BrcaTableList {
 
-    public ArrayList<Object> mBrcaPathogenicTable;
+    private static  BrcaTableList instance = null;
 
-    public ArrayList<Object> mBrcaUnKnownTable;
+    public static ArrayList<Object> mBrcaPathogenicTable;
 
-    public ArrayList<Object> mBrcaBenignTable;
+    public static ArrayList<Object> mBrcaUnKnownTable;
 
-    public ArrayList<Object> getmBrcaPathogenicTable() {
-        return mBrcaPathogenicTable;
-    }
+    public static ArrayList<Object> mBrcaBenignTable;
 
-    public void setmBrcaPathogenicTable(ArrayList<Object> mBrcaPathogenicTable) {
-        this.mBrcaPathogenicTable = mBrcaPathogenicTable;
-    }
+  public static synchronized BrcaTableList getInstance(){
+      if (instance == null){
+          instance = new BrcaTableList();
+      }
+      return instance;
+  }
 
-    public ArrayList<Object> getmBrcaUnKnownTable() {
-        return mBrcaUnKnownTable;
-    }
-
-    public void setmBrcaUnKnownTable(ArrayList<Object> mBrcaUnKnownTable) {
-        this.mBrcaUnKnownTable = mBrcaUnKnownTable;
-    }
-
-    public ArrayList<Object> getmBrcaBenignTable() {
-        return mBrcaBenignTable;
-    }
-
-    public void setmBrcaBenignTable(ArrayList<Object> mBrcaBenignTable) {
-        this.mBrcaBenignTable = mBrcaBenignTable;
-    }
-
-    public BrcaTableList() {
+    private BrcaTableList() {
         mBrcaBenignTable = new ArrayList<Object>();
         mBrcaUnKnownTable = new ArrayList<Object>();
         mBrcaPathogenicTable = new ArrayList<Object>();
