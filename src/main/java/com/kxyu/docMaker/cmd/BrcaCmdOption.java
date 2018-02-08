@@ -1,8 +1,6 @@
 package com.kxyu.docMaker.cmd;
 
 
-import com.kxyu.docMaker.common.Constant;
-import org.kohsuke.args4j.Option;
 /**
  * @Author: kxyuyuyu
  * @Date: Created in 14:06 2018/1/31
@@ -17,5 +15,8 @@ public class BrcaCmdOption {
 //
 //    @Option(name = Constant.BRCA_CMD_DATA_PATH, usage = "突变数据文件 ", required = true)
 //    public String mBrcaData;
+//      @Option(name = Constant.PATIENT_NAME_KEY, usage = "受检者姓名 ")
+//      public String mPatientName;
+
 
 }

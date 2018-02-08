@@ -46,7 +46,7 @@ public class BrcaDocRender {
 
     public static void bindDatas() throws IOException {
 
-        BrcaTableList brcaTableList = new BrcaTableList();
+        BrcaTableList brcaTableList = BrcaTableList.getInstance();
         ArrayList<Object> ch_info = new ArrayList<>();
         File file = new File("C:/Users/yuki_cool/yukaixin/docrender/src/main/resources/BRCA.txt");
 

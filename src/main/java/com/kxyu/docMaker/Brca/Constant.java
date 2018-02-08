@@ -55,10 +55,6 @@ public class Constant {
     public static   final String  BRCA_ONE_GENE                                  =  "BRCA1";
     public static   final String  BRCA_TWO_GENE                                  =  "BRCA2";
 
-    //BRCA CMD Option
-    public static   final String  BRCA_CMD_OUTPUT_PATH                           =  "-output";
-    public static   final String  BRCA_CMD_DOC_TEMPLATE_PATH                     =  "-doctemplate";
-    public static   final String  BRCA_CMD_DATA_PATH                             =  "-data";
 
     public static   String  BRCA_NO_SIGNIFICANCE_STR_BRCA_2                      =  ",在受检者中发现BRCA2基因的"+ String.valueOf(mBrca2NoSi)+"个意义未明突变";
     public static   String  BRCA_NO_SIGNIFICANCE_STR_BRCA_1                      =  ",在受检者中发现BRCA1基因的"+ String.valueOf(mBrca1NoSi)+"个意义未明突变";
@@ -67,6 +63,12 @@ public class Constant {
     public static   String  BRCA_TWO_TXT_HEAD                                    =  "在受检者中检出BRCA@基因"+ String.valueOf(mBrca2Pathogenic)+"个致病突变";
     public static   String  BRCA_TWO_TXT_HEAD_2                                  =  ";BRCA2基因"+ String.valueOf(mBrca2Pathogenic)+"个致病突变";
     public static   String  BRCA_TABLE_NO_DATAS                                  =  "-;-;-;-;-";
+
+
+    //BRCA CMD Option
+    public static   final String  BRCA_CMD_OUTPUT_PATH                           =  "-output";
+    public static   final String  BRCA_CMD_DOC_TEMPLATE_PATH                     =  "-doctemplate";
+    public static   final String  BRCA_CMD_DATA_PATH                             =  "-data";
 
 
 }
