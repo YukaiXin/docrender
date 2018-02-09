@@ -143,12 +143,12 @@ public class BrcaReaderLocalFile {
                             case Constant.BRCA_ONE_GENE:
                                 mBrca1Pathogenic += 1;
 
-                                mBrca1Txt += HandlePathogenicTxt(tmp[7], true);
+                                mBrca1Txt += HandlePathogenicTxt(tmp[7], tmp[8], true);
                                 break;
                             case Constant.BRCA_TWO_GENE:
                                 mBrca2Pathogenic += 1;
 
-                                mBrca2Txt += HandlePathogenicTxt(tmp[7], false);
+                                mBrca2Txt += HandlePathogenicTxt(tmp[7], tmp[8], false);
                                 break;
                         }
                         continue;
@@ -201,12 +201,12 @@ public class BrcaReaderLocalFile {
                                 case Constant.BRCA_ONE_GENE:
                                     mBrca1Pathogenic += 1;
 
-                                    mBrca1Txt += HandlePathogenicTxt(tmp[7], true);
+                                    mBrca1Txt += HandlePathogenicTxt(tmp[7], tmp[8], true);
                                     break;
                                 case Constant.BRCA_TWO_GENE:
                                     mBrca2Pathogenic += 1;
 
-                                    mBrca2Txt += HandlePathogenicTxt(tmp[7], false);
+                                    mBrca2Txt += HandlePathogenicTxt(tmp[7], tmp[8], false);
                                     break;
                             }
                             break;
@@ -217,12 +217,12 @@ public class BrcaReaderLocalFile {
                                 case Constant.BRCA_ONE_GENE:
                                     mBrca1Pathogenic += 1;
 
-                                    mBrca1Txt += HandlePathogenicTxt(tmp[7], true);
+                                    mBrca1Txt += HandlePathogenicTxt(tmp[7], tmp[8], true);
                                     break;
                                 case Constant.BRCA_TWO_GENE:
                                     mBrca2Pathogenic += 1;
 
-                                    mBrca2Txt += HandlePathogenicTxt(tmp[7], false);
+                                    mBrca2Txt += HandlePathogenicTxt(tmp[7], tmp[8], false);
                                     break;
                             }
                             break;
@@ -248,7 +248,7 @@ public class BrcaReaderLocalFile {
      * @param    Brca1 is true
      * @return
      */
-    public static String HandlePathogenicTxt (String mutectionStr, boolean isBrca1){
+    public static String HandlePathogenicTxt (String mutectionStr, String genotype, boolean isBrca1){
 
         if(mutectionStr.isEmpty() || mutectionStr.equals("")){
             return "";
@@ -258,16 +258,19 @@ public class BrcaReaderLocalFile {
         if(mutectionStr.contains("del")){
             //编码区XXXX位置的X个碱基缺失突变，影响蛋白质功能
             String[] tmp  = pStr.split(":");
-            String[] tmp1 = tmp[1].split(" ");
 
+            String mTmpVar = tmp[1];
             //编码区位置
-            tmp1[1].replace("_", "-");
-            tmp1[1].replace("del", "");
+            mTmpVar = mTmpVar.replace("_", "-");
+            mTmpVar = mTmpVar.replace("del", "");
+            mTmpVar = mTmpVar.replace("c.", "");
 
             //缺失数
-            String count   = String.valueOf(tmp1[2].length());
 
-            txt             = "，编码区" + tmp1[1] + "位置的" + count + "个碱基缺失突变，影响蛋白功能";
+            String mTmpGenotype  = genotype.replace("/-","");
+            String count   = String.valueOf(mTmpGenotype.length());
+
+            txt             = "，编码区" + mTmpVar + "位置的" + count + "个碱基缺失突变，影响蛋白功能";
 
             return txt;
         } else if(mutectionStr.contains("ins")){
