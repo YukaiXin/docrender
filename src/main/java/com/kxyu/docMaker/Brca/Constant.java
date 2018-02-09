@@ -75,4 +75,9 @@ public class Constant {
     public static   final String  BRCA_CMD_PATIENT_NAME                          =  "-patientName";
 
 
+    public static   final String  BRCA_CMD_OUTPUT_STRING                         =  "生成报告文件路径  ※文件格式：docx";
+    public static   final String  BRCA_CMD_CMD_DOC_TEMPLATE_STRING               =  "报告模板文件   ※文件格式：docx";
+    public static   final String  BRCA_CMD_DATA_STRING                           =  "突变数据文件 ";
+    public static   final String  BRCA_CMD_PATIENT_NAME_STRING                   = "受检者姓名 ";
+
 }

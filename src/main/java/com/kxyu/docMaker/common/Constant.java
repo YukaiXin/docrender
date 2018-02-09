@@ -1,7 +1,6 @@
 package com.kxyu.docMaker.common;
 
 
-import static com.kxyu.docMaker.Brca.BrcaReaderLocalFile.*;
 
 /**
  * @Author: kxyuyuyu

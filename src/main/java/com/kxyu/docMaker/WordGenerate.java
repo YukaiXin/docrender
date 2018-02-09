@@ -1,6 +1,5 @@
 package com.kxyu.docMaker;
 
-
 import com.kxyu.docMaker.cmd.Cmd;
 import com.kxyu.docMaker.cmd.CmdOption;
 import com.kxyu.docMaker.docDatas.ChemotherapyData;
@@ -71,8 +70,5 @@ public class WordGenerate {
         template.process(root, out1);
         System.out.println(OK);
     }
-
-
-
 
 }

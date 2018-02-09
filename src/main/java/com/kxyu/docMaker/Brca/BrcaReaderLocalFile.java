@@ -1,7 +1,6 @@
 package com.kxyu.docMaker.Brca;
 
 import com.kxyu.docMaker.BrcaTableList;
-import com.kxyu.docMaker.Brca.Constant;
 import com.kxyu.docMaker.common.ConstantMap;
 import com.kxyu.docMaker.utils.StringUtils;
 

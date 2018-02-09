@@ -1,13 +1,8 @@
 package com.kxyu.docMaker;
 
 import com.kxyu.docMaker.common.Constant;
-import com.kxyu.docMaker.common.ConstantMap;
 import com.kxyu.docMaker.docDatas.ChemotherapyData;
 import com.kxyu.docMaker.docDatas.QcDatas;
-import com.kxyu.docMaker.utils.StringUtils;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.poi.util.StringUtil;
 
 import java.io.*;
 import java.util.ArrayList;

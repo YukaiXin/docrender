@@ -1,7 +1,5 @@
 package com.kxyu.docMaker.docDatas;
 
-import com.kxyu.docMaker.document.AbstractDocumentVo;
-
 import java.io.Serializable;
 
 
