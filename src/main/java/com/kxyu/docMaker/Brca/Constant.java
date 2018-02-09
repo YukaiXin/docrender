@@ -72,7 +72,7 @@ public class Constant {
     public static   final String  BRCA_CMD_OUTPUT_PATH                           =  "-output";
     public static   final String  BRCA_CMD_DOC_TEMPLATE_PATH                     =  "-doctemplate";
     public static   final String  BRCA_CMD_DATA_PATH                             =  "-data";
-    public static   final String  BRCA_CMD_PATIENT_NAME                                  =  "-patirntData";
+    public static   final String  BRCA_CMD_PATIENT_NAME                          =  "-patientName";
 
 
 }

@@ -38,8 +38,9 @@ public class BrcaDocRender {
             Cmd.showHelp(parser);
             return;
         }
-        bindDatas(cmdOption);
+
         parser.parseArgument(args);
+        bindDatas(cmdOption);
 
         System.out.println("\n"+OK);
     }

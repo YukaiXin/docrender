@@ -52,7 +52,6 @@ public class BrcaReaderLocalFile {
                 //UMD   11z
 
                 String umdStr = tmp[11];
-                System.out.println(umdStr);
                 if (umdStr.equals("None") || umdStr.contains("*")){
 
                     //CLinsig
@@ -84,10 +83,6 @@ public class BrcaReaderLocalFile {
                             mPathogenicCount = StringUtils.getOccur(tmp[10], Constant.BRCA_JUDGE_PATHOGENIC);
                         }
 
-                        System.out.println("良性："+mBenignCount);
-                        System.out.println("yi良性："+mLikelyBenignCount);
-                        System.out.println("zb："+mBenignCount);
-                        System.out.println("yzb："+mLikelyPathogenicCount);
 
                         //良性
                         if (mBenignCount >= mLikelyBenignCount && mBenignCount > mPathogenicCount && mBenignCount > mLikelyPathogenicCount) {
