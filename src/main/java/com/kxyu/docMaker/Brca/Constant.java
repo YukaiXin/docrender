@@ -62,7 +62,7 @@ public class Constant {
     public static   String  BRCA_NO_SIGNIFICANCE_STR_BRCA_1                      =  ",在受检者中发现BRCA1基因的"+ String.valueOf(mBrca1NoSi)+"个意义未明突变";
     public static   String  BRCA_NO_SIGNFICANCE_NOT_FIND                         =  ",未发现意义未明突变";
     public static   String  BRCA_ONE_TXT_HEAD                                    =  "在受检者中检出BRCA1基因"+ String.valueOf(mBrca1Pathogenic)+"个致病突变";
-    public static   String  BRCA_TWO_TXT_HEAD                                    =  "在受检者中检出BRCA@基因"+ String.valueOf(mBrca2Pathogenic)+"个致病突变";
+    public static   String  BRCA_TWO_TXT_HEAD                                    =  "在受检者中检出BRCA2基因"+ String.valueOf(mBrca2Pathogenic)+"个致病突变";
     public static   String  BRCA_TWO_TXT_HEAD_2                                  =  ";BRCA2基因"+ String.valueOf(mBrca2Pathogenic)+"个致病突变";
     public static   String  BRCA_TABLE_NO_DATAS                                  =  "-;-;-;-;-";
 
