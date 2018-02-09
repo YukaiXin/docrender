@@ -49,10 +49,6 @@ public class BrcaDocRender {
 
         BrcaTableList brcaTableList = BrcaTableList.getInstance();
 
-        if(cmdOption == null){
-            System.out.println("null");
-        }
-
         File file = new File(cmdOption.mBrcaData);
 
         readBrcaData(brcaTableList, file);
@@ -121,7 +117,7 @@ public class BrcaDocRender {
             mNoSig = BRCA_NO_SIGNFICANCE_NOT_FIND;
         }
 
-        datas.put("mBrcaNoSiStr",  mNoSig);
+        datas.put(BRCA_REPORT_NO_SIGNIFICANCE_STR,  mNoSig);
 
         /**
          * 是否用药

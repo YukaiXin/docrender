@@ -24,7 +24,7 @@ public class CmdOption {
     @Option(name = CMD_CHEMOTHERAPY_NAME, usage = CMD_CHEMOTHERAPY_USAGE, required = true)
     public String chemotherapyFilePath;
 
-
     @Option(name = CMD_OUTPUT_NAME, usage = CMD_OUTPUT_USAGE, required = true, metaVar = CMD_OUTPUT_MATEVAR)
     public File out = new File(".");
+
 }

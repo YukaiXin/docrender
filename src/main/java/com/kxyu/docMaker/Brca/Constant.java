@@ -24,6 +24,7 @@ public class Constant {
     public static   final String  BRCA_REPORT_DETECTION_RESULT                   =  "mDetectionResult";
     public static   final String  BRCA_REPORT_ONE_BENIGN_COUNT                   =  "mBrca1BenignCount";
     public static   final String  BRCA_REPORT_TWO_BENIGN_COUNT                   =  "mBrca2BenignCount";
+    public static   final String  BRCA_REPORT_NO_SIGNIFICANCE_STR                =  "mBrcaNoSiStr";
 
     public static   final String  BRCA_TABLE_NO_DATAS_STR                        =  "on datas";
     public static   final int     BRCA_TABLE_WIDTH                               =  9600;
