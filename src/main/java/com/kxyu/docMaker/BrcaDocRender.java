@@ -6,6 +6,7 @@ import com.deepoove.poi.data.TableRenderData;
 import com.deepoove.poi.data.TextRenderData;
 import com.deepoove.poi.render.RenderAPI;
 import com.kxyu.docMaker.cmd.BrcaCmdOption;
+import com.kxyu.docMaker.cmd.Cmd;
 import com.kxyu.docMaker.utils.DateUtil;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -32,23 +33,26 @@ public class BrcaDocRender {
         BrcaCmdOption cmdOption = new BrcaCmdOption();
         CmdLineParser parser = new CmdLineParser(cmdOption);
 
-//        if (args.length == 0){
-//            Cmd.showHelp(parser);
-//            return;
-//        }
-        bindDatas();
+
+        if (args.length == 0){
+            Cmd.showHelp(parser);
+            return;
+        }
+        bindDatas(cmdOption);
         parser.parseArgument(args);
-
-
 
         System.out.println("\n"+OK);
     }
 
-    public static void bindDatas() throws IOException {
+    public static void bindDatas(BrcaCmdOption cmdOption) throws IOException {
 
         BrcaTableList brcaTableList = BrcaTableList.getInstance();
-        ArrayList<Object> ch_info = new ArrayList<>();
-        File file = new File("C:/Users/yuki_cool/yukaixin/docrender/src/main/resources/BRCA.txt");
+
+        if(cmdOption == null){
+            System.out.println("null");
+        }
+
+        File file = new File(cmdOption.mBrcaData);
 
         readBrcaData(brcaTableList, file);
 
@@ -68,7 +72,7 @@ public class BrcaDocRender {
         }
 
         Map<String, Object> datas = new HashMap<String, Object>(){{
-            put(PATIENT_NAME_KEY, "");
+            put(PATIENT_NAME_KEY, cmdOption.mPatientName);
             put(PATIENT_AGE_KEY, "");
             put(PATIENT_SEX_KEY, "");
             put(BRCA_REPORT_DATE, DateUtil.format(DateUtil.getToday(), DateUtil.FORMATTER_OF_DATE));
@@ -80,21 +84,21 @@ public class BrcaDocRender {
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENOTYPE));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_DBSNP));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_CLINSIG));
-            }}, brcaTableList.mBrcaBenignTable, "no datas", 9600));
+            }}, brcaTableList.mBrcaBenignTable, BRCA_TABLE_NO_DATAS_STR, BRCA_TABLE_WIDTH));
             put(BRCA_REPORT_TABLE_ONE, new TableRenderData(new ArrayList<RenderData>(){{
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENE));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_MUTION));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENOTYPE));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_DBSNP));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_CLINSIG));
-            }}, brcaTableList.mBrcaPathogenicTable, "no datas", 9600));
+            }}, brcaTableList.mBrcaPathogenicTable, BRCA_TABLE_NO_DATAS_STR, BRCA_TABLE_WIDTH));
             put(BRCA_REPORT_TABLE_TWO, new TableRenderData(new ArrayList<RenderData>(){{
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENE));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_MUTION));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_GENOTYPE));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_DBSNP));
                 add(new TextRenderData(BRCA_TABLE_HEAD_COLOR, BRCA_TABLE_CLINSIG));
-            }}, brcaTableList.mBrcaUnKnownTable, "no datas", 9600));
+            }}, brcaTableList.mBrcaUnKnownTable, BRCA_TABLE_NO_DATAS_STR, BRCA_TABLE_WIDTH));
         }};
 
         /**
@@ -154,14 +158,14 @@ public class BrcaDocRender {
 
         //读取模板，进行渲染
         XWPFTemplate doc = XWPFTemplate
-                .create("C:/Users/yuki_cool/yukaixin/docrender/src/main/resources/brca.docx");
+                .create(cmdOption.mDocTemplatePath);
         RenderAPI.render(doc, datas);
 
         //输出渲染后的文件
-        FileOutputStream out = new FileOutputStream("C:/Users/yuki_cool/yukaixin/docrender/src/main/resources/test.docx");
+        FileOutputStream out = new FileOutputStream(cmdOption.mOutput);
         doc.write(out);
         out.flush();
         out.close();
-    }
 
+    }
 }

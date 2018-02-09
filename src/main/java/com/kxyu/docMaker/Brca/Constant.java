@@ -25,6 +25,8 @@ public class Constant {
     public static   final String  BRCA_REPORT_ONE_BENIGN_COUNT                   =  "mBrca1BenignCount";
     public static   final String  BRCA_REPORT_TWO_BENIGN_COUNT                   =  "mBrca2BenignCount";
 
+    public static   final String  BRCA_TABLE_NO_DATAS_STR                        =  "on datas";
+    public static   final int     BRCA_TABLE_WIDTH                               =  9600;
     public static   final String  BRCA_REPORT_STR_YIN_DETECTION_RESULT           =  "在受检者中未检出BRCA1/BRCA2基因的任何致病或疑似致病突变";
 
     public static   final String  BRCA_REPORT_STR_RISK_LEVEL_LOW                 =  "低";
@@ -65,10 +67,12 @@ public class Constant {
     public static   String  BRCA_TABLE_NO_DATAS                                  =  "-;-;-;-;-";
 
 
+
     //BRCA CMD Option
     public static   final String  BRCA_CMD_OUTPUT_PATH                           =  "-output";
     public static   final String  BRCA_CMD_DOC_TEMPLATE_PATH                     =  "-doctemplate";
     public static   final String  BRCA_CMD_DATA_PATH                             =  "-data";
+    public static   final String  BRCA_CMD_PATIENT_NAME                                  =  "-patirntData";
 
 
 }
