@@ -14,7 +14,7 @@ public class Constant {
      **********BRCA***********
      ************************
      ************************/
-
+    public static   final String  BRCA_REPORT_CHINSES_DATE                       =  "ChineseDate";
     public static   final String  BRCA_REPORT_DATE                               =  "date";
     public static   final String  BRCA_REPORT_RISK                               =  "mRisk";
     public static   final String  BRCA_REPORT_DRUG                               =  "mIsUseDrug";
@@ -39,6 +39,7 @@ public class Constant {
     public static   final String  BRCA_TABLE_DBSNP                               =  "dbsnp"+ "\t";
     public static   final String  BRCA_TABLE_GENOTYPE                            =  "基因型 " + "\t";
     public static   final String  BRCA_TABLE_HEAD_COLOR                          =  "FFD39B" + "\t";
+    public static   final String  BRCA_TABLE_HEAD_WHITE_COLOR                    =  "00FFFFFF";
     public static   final String  BRCA_TABLE_MUTION                              =  "突变名称" + "\t";
     public static   final String  BRCA_TABLE_CLINSIG                             =  "临床意义" + "\t";
 

@@ -10,11 +10,11 @@ public class BrcaTableList {
 
     private static  BrcaTableList instance = null;
 
-    public static ArrayList<Object> mBrcaPathogenicTable;
+    public  ArrayList<Object> mBrcaPathogenicTable;
 
-    public static ArrayList<Object> mBrcaUnKnownTable;
+    public  ArrayList<Object> mBrcaUnKnownTable;
 
-    public static ArrayList<Object> mBrcaBenignTable;
+    public  ArrayList<Object> mBrcaBenignTable;
 
   public static synchronized BrcaTableList getInstance(){
       if (instance == null){

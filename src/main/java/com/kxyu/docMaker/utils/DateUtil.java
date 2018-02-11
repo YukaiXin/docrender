@@ -169,6 +169,14 @@ public class DateUtil
 		return sdf.format(date);
 	}
 
+	public static String chineseFormatDate(Date date){
+
+		String[] tmpDate = format(date, FORMATTER_OF_DATE ).split("-");
+
+
+		return tmpDate[0]+ "年" + tmpDate[1] + "月" + tmpDate[2] + "日";
+	}
+
 	/**
 
 	 * 格式化日期
