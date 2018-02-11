@@ -85,19 +85,19 @@ public class BrcaReaderLocalFile {
 
                         //良性
                         if (mBenignCount >= mLikelyBenignCount && mBenignCount > mPathogenicCount && mBenignCount > mLikelyPathogenicCount) {
-                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_BENGIN));
+                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" + Constant.BRCA_BENGIN));
                         }else if (mLikelyBenignCount > mBenignCount && mLikelyBenignCount > mPathogenicCount && mLikelyBenignCount > mLikelyPathogenicCount){
                         //疑似良性
-                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_Likely_Benign));
+                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" + Constant.BRCA_Likely_Benign));
                         }else if (mPathogenicCount >= mLikelyPathogenicCount && mPathogenicCount > mBenignCount && mPathogenicCount > mLikelyBenignCount){
                         //致病
-                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_JUDGE_PATHOGENIC));
+                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" + Constant.BRCA_JUDGE_PATHOGENIC));
                         }else if (mLikelyPathogenicCount > mPathogenicCount && mLikelyPathogenicCount > mBenignCount && mLikelyPathogenicCount > mLikelyBenignCount){
                         //疑似致病
-                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_Likely_PATHOGENIC));
+                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" + Constant.BRCA_Likely_PATHOGENIC));
                         }else {
                         //待确认
-                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" +tmp[10]+ Constant.BRCA_NO_CONFIRM));
+                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" + Constant.BRCA_NO_CONFIRM));
                         }
                         continue;
                     }
@@ -106,7 +106,7 @@ public class BrcaReaderLocalFile {
                      *  意义未明
                      * **/
                     if((!tmp[10].contains(Constant.BRCA_JUDGE_BENGIN)) && tmp[10].contains(Constant.BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE)){
-                        brcaTableList.mBrcaUnKnownTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_NO_SIGNIFICANCE));
+                        brcaTableList.mBrcaUnKnownTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" + Constant.BRCA_NO_SIGNIFICANCE));
 
                         switch (tmp[6]){
                             case Constant.BRCA_ONE_GENE:
@@ -123,7 +123,7 @@ public class BrcaReaderLocalFile {
                      * 良性
                      * */
                     if((tmp[10].contains(Constant.BRCA_JUDGE_BENGIN)) && (!tmp[10].contains(Constant.BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE))){
-                        brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_BENGIN));
+                        brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" + Constant.BRCA_BENGIN));
 
                         switch (tmp[6]){
                             case Constant.BRCA_ONE_GENE:
@@ -137,7 +137,7 @@ public class BrcaReaderLocalFile {
                     }
 
                     if(tmp[10].contains(Constant.BRCA_JUDGE_PATHOGENIC)){
-                        brcaTableList.mBrcaPathogenicTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[10] + "\n" + Constant.BRCA_STR_PATHOGENIC));
+                        brcaTableList.mBrcaPathogenicTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" + Constant.BRCA_STR_PATHOGENIC));
 
                         switch (tmp[6]){
                             case Constant.BRCA_ONE_GENE:
@@ -159,7 +159,7 @@ public class BrcaReaderLocalFile {
 
                     switch (umdStr){
                         case "1 - Neutral":
-                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[11] + "\n" + Constant.BRCA_BENGIN));
+                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" + Constant.BRCA_BENGIN));
 
                             switch (tmp[6]){
                                 case Constant.BRCA_ONE_GENE:
@@ -171,7 +171,7 @@ public class BrcaReaderLocalFile {
                             }
                             break;
                         case "2 - Likely Neutral":
-                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[11] + "\n" + Constant.BRCA_BENGIN));
+                            brcaTableList.mBrcaBenignTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" + Constant.BRCA_BENGIN));
 
                             switch (tmp[6]){
                                 case Constant.BRCA_ONE_GENE:
@@ -183,7 +183,7 @@ public class BrcaReaderLocalFile {
                             }
                             break;
                         case "3 - UV":
-                            brcaTableList.mBrcaUnKnownTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[11] + "\n" + Constant.BRCA_NO_SIGNIFICANCE));
+                            brcaTableList.mBrcaUnKnownTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" + Constant.BRCA_NO_SIGNIFICANCE));
 
                             switch (tmp[6]){
                                 case Constant.BRCA_ONE_GENE:
@@ -195,7 +195,7 @@ public class BrcaReaderLocalFile {
                             }
                             break;
                         case "4 - Likely causal":
-                            brcaTableList.mBrcaPathogenicTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[11] + "\n" + Constant.BRCA_STR_PATHOGENIC));
+                            brcaTableList.mBrcaPathogenicTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ Constant.BRCA_STR_PATHOGENIC));
 
                             switch (tmp[6]){
                                 case Constant.BRCA_ONE_GENE:
@@ -211,7 +211,7 @@ public class BrcaReaderLocalFile {
                             }
                             break;
                         case "5 - Causal":
-                            brcaTableList.mBrcaPathogenicTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+ tmp[11] + "\n" + Constant.BRCA_STR_PATHOGENIC));
+                            brcaTableList.mBrcaPathogenicTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";"+  Constant.BRCA_STR_PATHOGENIC));
 
                             switch (tmp[6]){
                                 case Constant.BRCA_ONE_GENE:
