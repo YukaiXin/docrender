@@ -276,16 +276,20 @@ public class BrcaReaderLocalFile {
         } else if(mutectionStr.contains("ins")){
             //编码区XXXX位置的X个碱基插入突变，影响蛋白质功能
             String[] tmp    = pStr.split(":");
-            String[] tmp1   = tmp[1].split(" ");
 
+            String mTmpVar = tmp[1];
             //编码区位置
-            tmp1[1].replace("_", "-");
-            tmp1[1].replace("ins", "");
+            mTmpVar = mTmpVar.replace("_", "-");
+            mTmpVar = mTmpVar.replace("ins", "");
+            mTmpVar = mTmpVar.replace("c.", "");
+
 
             //缺失数
-            String count   = String.valueOf(tmp1[2].length());
 
-            txt            = "，编码区" + tmp1[1] + "位置的" + count + "个碱基插入突变，影响蛋白功能";
+            String mTmpGenotype  = genotype.replace("/-","");
+            String count   = String.valueOf(mTmpGenotype.length());
+
+            txt            = "，编码区" + mTmpVar + "位置的" + count + "个碱基插入突变，影响蛋白功能";
             return txt;
         }else {
             //编码区XXXX位置XX氨基酸变为XXX氨基酸，为致病突变
