@@ -105,7 +105,7 @@ public class BrcaReaderLocalFile {
                     /**
                      *  意义未明
                      * **/
-                    if((!tmp[10].contains(Constant.BRCA_JUDGE_BENGIN)) && tmp[10].contains(Constant.BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE)){
+                    if(((!tmp[10].contains(Constant.BRCA_JUDGE_BENGIN)) && tmp[10].contains(Constant.BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE)) || tmp[10].equals(".")){
                         brcaTableList.mBrcaUnKnownTable.add((tmp[6]+";"+tmp[7]+";"+tmp[8]+";"+tmp[9]+";" + Constant.BRCA_NO_SIGNIFICANCE));
 
                         switch (tmp[6]){
