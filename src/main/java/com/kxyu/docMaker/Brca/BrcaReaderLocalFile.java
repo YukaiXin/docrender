@@ -115,9 +115,11 @@ public class BrcaReaderLocalFile {
                     /***
                      * 良性
                      * */
-                    if((tmp[10].contains(Constant.BRCA_JUDGE_BENGIN)) && (!tmp[10].contains(Constant.BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE))){
-
-                        BrcaBeginCount(brcaTableList, tmp, Constant.BRCA_BENGIN);
+                    if((tmp[10].contains(Constant.BRCA_JUDGE_BENGIN))){
+                        if(!tmp[10].contains(Constant.BRCA_JUDGE_UNCERTAIN_SIGNIFICANCE)) {
+                            BrcaBeginCount(brcaTableList, tmp, Constant.BRCA_BENGIN);
+                            continue;
+                        }
 
                     }
 
