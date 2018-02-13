@@ -80,6 +80,17 @@ public class Constant {
     public static   final String  BRCA_CMD_OUTPUT_STRING                         =  "生成报告文件路径  ※文件格式：docx";
     public static   final String  BRCA_CMD_CMD_DOC_TEMPLATE_STRING               =  "报告模板文件   ※文件格式：docx";
     public static   final String  BRCA_CMD_DATA_STRING                           =  "突变数据文件 ";
-    public static   final String  BRCA_CMD_PATIENT_NAME_STRING                   = "受检者姓名 ";
+    public static   final String  BRCA_CMD_PATIENT_NAME_STRING                   =  "受检者姓名 ";
+
+
+    public static   final String  BRCA_CMD_UV                                    = "3 - UV";
+    public static   final String  BRCA_CMD_CAUSAL                                = "5 - Causal";
+    public static   final String  BRCA_CMD_NEUTRAL                               = "1 - Neutral";
+    public static   final String  BRCA_CMD_LIKELY_CAUSAL                         = "4 - Likely causal";
+    public static   final String  BRCA_CMD_LIKELY_NEUTRAL                        = "2 - Likely Neutral";
+
+
+
+
 
 }

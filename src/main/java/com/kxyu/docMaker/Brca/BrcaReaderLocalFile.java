@@ -135,27 +135,27 @@ public class BrcaReaderLocalFile {
                 }else {
 
                     switch (umdStr){
-                        case "1 - Neutral":
+                        case Constant.BRCA_CMD_NEUTRAL:
 
                             BrcaBeginCount(brcaTableList, tmp,  Constant.BRCA_BENGIN);
 
                             break;
-                        case "2 - Likely Neutral":
+                        case Constant.BRCA_CMD_LIKELY_NEUTRAL:
 
                             BrcaBeginCount(brcaTableList, tmp,  Constant.BRCA_Likely_Benign);
 
                             break;
-                        case "3 - UV":
+                        case Constant.BRCA_CMD_UV:
 
                             BrcaNoSiCount(brcaTableList, tmp, Constant.BRCA_NO_SIGNIFICANCE);
 
                             break;
-                        case "4 - Likely causal":
+                        case Constant.BRCA_CMD_LIKELY_CAUSAL:
 
 
                             BrcaPathogenicCount(brcaTableList, tmp, Constant.BRCA_Likely_PATHOGENIC);
                             break;
-                        case "5 - Causal":
+                        case Constant.BRCA_CMD_CAUSAL:
 
                             BrcaPathogenicCount(brcaTableList, tmp, Constant.BRCA_STR_PATHOGENIC);
 
