@@ -51,7 +51,7 @@ public class BrcaReaderLocalFile {
                 //UMD   11z
 
                 String umdStr = tmp[11];
-                if (umdStr.equals("None") || umdStr.contains("*")){
+                if (umdStr.equals(Constant.BRCA_CMD_NONE) || umdStr.contains(Constant.BRCA_CMD_STAR)){
 
                     //CLinsig
                     if(tmp[7].equals(Constant.BRCA_JUDGE_POINT) && !tmp[10].contains(Constant.BRCA_JUDGE_PATHOGENIC) ){

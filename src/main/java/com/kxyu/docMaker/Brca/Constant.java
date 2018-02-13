@@ -84,6 +84,8 @@ public class Constant {
 
 
     public static   final String  BRCA_CMD_UV                                    = "3 - UV";
+    public static   final String  BRCA_CMD_STAR                                  = "*";
+    public static  final  String  BRCA_CMD_NONE                                  = "None";
     public static   final String  BRCA_CMD_CAUSAL                                = "5 - Causal";
     public static   final String  BRCA_CMD_NEUTRAL                               = "1 - Neutral";
     public static   final String  BRCA_CMD_LIKELY_CAUSAL                         = "4 - Likely causal";
