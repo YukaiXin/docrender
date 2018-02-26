@@ -1,4 +1,4 @@
-package com.kxyu.docMaker;
+package com.kxyu.docMaker.Brca;
 
 import java.util.ArrayList;
 
